@@ -7,56 +7,44 @@
 </head>
 
 <body class="love-page">
+
 <audio id="bgMusic" loop>
   <source src="media/music.mp3.mp3" type="audio/mpeg">
 </audio>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const music = document.getElementById("bgMusic");
-
-    function startMusic() {
-        music.play().catch(() => {});
-        document.removeEventListener("click", startMusic);
-    }
-
-    document.addEventListener("click", startMusic);
-});
-</script>
-
 <div class="floating-hearts"></div>
 
-<h1 class=>WAAAAAZZZUUUUUPPPPP❤️❤️</h1>
+<h1 class="main-title fade-in">WAAAAAZZZUUUUUPPPPP ❤️</h1>
+
+<p class="days-counter fade-in" id="daysTogether"></p>
 
 <div class="main-letter fade-in">
     <h2>A Letter For You</h2>
     <p>
-        You walked into my life and somehow made everything softer.
-        Quieter. Safer.
-        Loving you isn’t loud or chaotic.
+        You walked into my life  
+        and somehow made everything softer.
+        <br><br>
+        Quieter.
+        <br><br>
+        Safer.
+        <br><br>
+        Loving you isn’t loud or chaotic.  
         It’s steady. It’s intentional.
-        And I would choose you — in every version of my life.
+        <br><br>
+        And I would choose you —  
+        in every version of my life.
     </p>
 </div>
 
 <h2>Our Memories</h2>
 <div class="gallery fade-in">
-    <img src="media/image1.jpg.jpeg">
-    <img src="media/image2.jpg.jpeg">
-    <img src="media/image3.jpg.jpeg">
-    <img src="media/image4.jpg.jpeg">
-    <img src="media/image5.jpg.jpeg">
-    <img src="media/image6.jpg.jpeg">
-    <img src="media/image7.jpg.jpeg">
-    <img src="media/image8.jpg.jpeg">
+    <img src="media/image1.jpg">
+    <img src="media/image2.jpg">
+    <img src="media/image3.jpg">
 </div>
 
 <h2>Our Moments</h2>
-<video controls src="media/video1.mp4.mp4" class="fade-in"></video>
-<video controls src="media/video2.mp4.mp4" class="fade-in"></video>
-<video controls src="media/video3.mp4.mp4" class="fade-in"></video>
-<video controls src="media/video4.mp4.mp4" class="fade-in"></video>
-<video controls src="media/video5.mp4.mp4" class="fade-in"></video>
+<video controls src="media/video1.mp4" class="fade-in"></video>
 
 <h2>Love Notes</h2>
 
@@ -65,6 +53,8 @@ document.addEventListener("DOMContentLoaded", function() {
 <textarea id="newMessage" placeholder="Write something from your heart..."></textarea>
 <br>
 <button onclick="addMessage()">Send</button>
+
+<div class="secret-heart" onclick="secretMessage()">♥</div>
 
 <p class="ending-line">In every lifetime, I’d still find you.</p>
 
