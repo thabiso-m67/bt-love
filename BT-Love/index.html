@@ -8,22 +8,17 @@
 
 <body class="lockscreen">
 
-<div class="overlay"></div>
+<!-- Intro Screen -->
+<div id="intro">
+  <h1 class="intro-text">For My Princess.</h1>
+  <p class="intro-sub">Open when your heart is calm.</p>
+</div>
 
-<div class="lock-container">
-
-    <h1 class="title">B & T</h1>
-    <p class="subtitle">A little piece of us</p>
-
-    <div class="envelope">
-        <div class="flap"></div>
-        <div class="heart">❤</div>
-    </div>
-
-    <input type="password" id="password" placeholder="Enter our date (Just numbers no - )">
-    <button onclick="unlock()">Unlock</button>
-    <p id="error"></p>
-
+<!-- Envelope -->
+<div class="envelope-container hidden">
+  <div class="envelope" onclick="openPrompt()">
+    <div class="heart">B & T</div>
+  </div>
 </div>
 
 <script src="script.js"></script>
