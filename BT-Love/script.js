@@ -1,48 +1,69 @@
-function unlock() {
-    const password = document.getElementById("password").value;
-    const correctPassword = "17102025";
 
-    if (password === correctPassword) {
-        document.querySelector(".envelope").classList.add("open");
+setTimeout(() => {
+    document.querySelector(".envelope-container").classList.remove("hidden");
+}, 4000);
 
-        setTimeout(() => {
-            window.location.href = "love.html";
-        }, 1200);
-
+function openPrompt() {
+    let pass = prompt("Enter the password:");
+    if(pass === "17-10-2025"){
+        window.location.href = "love.html";
     } else {
-        document.getElementById("error").innerText = "That’s not our date.";
+        alert("Wrong password.");
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    if (document.getElementById("messageList")) {
-        loadMessages();
+document.addEventListener("click", function(){
+    const music = document.getElementById("bgMusic");
+    if(music){
+        music.volume = 0;
+        music.play();
+        let fade = setInterval(()=>{
+            if(music.volume < 1){
+                music.volume += 0.05;
+            } else {
+                clearInterval(fade);
+            }
+        },200);
     }
-});
+},{once:true});
 
-function addMessage() {
-    const messageInput = document.getElementById("newMessage");
-    const message = messageInput.value;
-
-    if (message.trim() === "") return;
+function addMessage(){
+    let text = document.getElementById("newMessage").value;
+    if(text.trim() === "") return;
 
     let messages = JSON.parse(localStorage.getItem("loveMessages")) || [];
-    messages.push(message);
+    messages.push(text);
     localStorage.setItem("loveMessages", JSON.stringify(messages));
 
-    messageInput.value = "";
-    loadMessages();
+    displayMessages();
+    document.getElementById("newMessage").value = "";
 }
 
-function loadMessages() {
-    const messageList = document.getElementById("messageList");
-    messageList.innerHTML = "";
+function displayMessages(){
+    let list = document.getElementById("messageList");
+    if(!list) return;
 
+    list.innerHTML="";
     let messages = JSON.parse(localStorage.getItem("loveMessages")) || [];
 
-    messages.forEach(msg => {
-        const p = document.createElement("p");
-        p.innerText = msg;
-        messageList.appendChild(p);
+    messages.forEach(msg=>{
+        let p = document.createElement("p");
+        p.textContent = msg;
+        list.appendChild(p);
     });
+}
+
+displayMessages();
+
+const startDate = new Date("2025-10-17");
+const today = new Date();
+const diffTime = today - startDate;
+const diffDays = Math.floor(diffTime / (1000*60*60*24));
+const counter = document.getElementById("daysTogether");
+if(counter){
+    counter.textContent = "We've been writing our story for " + diffDays + " days.";
+}
+
+function secretMessage(){
+    alert("No matter what happens in this world, I choose you. Every time.");
 }
