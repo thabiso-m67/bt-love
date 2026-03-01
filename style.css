@@ -140,14 +140,14 @@ button {
     background: linear-gradient(45deg, #ffcc00, #ff9900, #ffcc66);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow:0 0 25px rgba(255,200,0,0.8);
-    animation: goldenPulse 3s infinite ease-in-out;
+    text-shadow:0 0 25px rgba(255,255,255,0.8);
+    animation: whiteGlowPulse 3s infinite ease-in-out;
 }
 
-@keyframes goldenPulse {
-    0% { text-shadow:0 0 15px rgba(255,200,0,0.5); }
-    50% { text-shadow:0 0 40px rgba(255,200,0,1); }
-    100% { text-shadow:0 0 15px rgba(255,200,0,0.5); }
+@keyframes whiteGlowPulse {
+    0% { text-shadow:0 0 15px rgba(255,255,255,0.5); }
+    50% { text-shadow:0 0 40px rgba(255,255,255,1); }
+    100% { text-shadow:0 0 15px rgba(255,255,255,0.5); }
 }
 
 .timer-label {
@@ -189,3 +189,4 @@ body::before {
     from { transform: translateY(0); }
     to { transform: translateY(-100px); }
 }
+
