@@ -156,11 +156,6 @@ button {
     margin-top:10px;
 }
 
-@keyframes glowPulse {
-    0% { text-shadow:0 0 15px rgba(255,77,166,0.5); }
-    50% { text-shadow:0 0 40px rgba(255,77,166,1); }
-    100% { text-shadow:0 0 15px rgba(255,77,166,0.5); }
-}
 }
 
 body::before {
@@ -189,4 +184,5 @@ body::before {
     from { transform: translateY(0); }
     to { transform: translateY(-100px); }
 }
+
 
