@@ -58,12 +58,14 @@ displayMessages();
 const startDate = new Date("2025-10-17");
 const today = new Date();
 const diffTime = today - startDate;
-const diffDays = Math.floor(diffTime / (1000*60*60*24));
+const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
 const counter = document.getElementById("daysTogether");
-if(counter){
-    counter.textContent = "We've been writing our story for " + diffDays + " days.";
+if (counter) {
+    counter.textContent = diffDays;
 }
 
 function secretMessage(){
     alert("No matter what happens in this world, I choose you. Every time.");
 }
+
