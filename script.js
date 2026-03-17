@@ -69,3 +69,48 @@ function secretMessage(){
     alert("No matter what happens in this world, I choose you. Every time.");
 }
 
+function checkAnniversary() {
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth() + 1;
+
+    const screen = document.getElementById("celebrationScreen");
+    const title = document.getElementById("celebrationTitle");
+    const message = document.getElementById("celebrationMessage");
+
+    if(day === 17 && month === 10){
+        // Yearly anniversary
+        screen.classList.remove("hidden");
+        title.innerText = "🎉 Our Anniversary 🎉";
+        message.innerText = "Another year of loving you. And somehow, I love you even more.";
+
+        launchConfetti();
+    }
+    else if(day === 17){
+        // Monthly anniversary
+        screen.classList.remove("hidden");
+        title.innerText = "💛 Monthly Anniversary 💛";
+        message.innerText = "Another month of us. And I’d still choose you every time.";
+
+        launchConfetti();
+    }
+
+    // Auto close after 5 seconds
+    setTimeout(() => {
+        screen.classList.add("hidden");
+    }, 5000);
+}
+
+function launchConfetti() {
+    for(let i = 0; i < 50; i++){
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.animationDuration = (2 + Math.random()*3) + "s";
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 5000);
+    }
+}
+
+checkAnniversary();
