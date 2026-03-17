@@ -81,7 +81,7 @@ function checkAnniversary() {
     if(day === 17 && month === 10){
         // Yearly anniversary
         screen.classList.remove("hidden");
-        title.innerText = "🎉 Our Anniversary 🎉";
+        title.innerText = "❤️🎉 Our Anniversary ❤️🎉";
         message.innerText = "Another year of loving you. And somehow, I love you even more.";
 
         launchConfetti();
@@ -89,8 +89,8 @@ function checkAnniversary() {
     else if(day === 17){
         // Monthly anniversary
         screen.classList.remove("hidden");
-        title.innerText = "💛 Monthly Anniversary 💛";
-        message.innerText = "Another month of us. And I’d still choose you every time.";
+        title.innerText = "❤️ Monthly Anniversary ❤️";
+        message.innerText = "Another month of us. Loving and experiencing you has been the best thing, and I’d still choose you every time.";
 
         launchConfetti();
     }
