@@ -225,4 +225,19 @@ body::before {
     to { transform:scale(1); opacity:1; }
 }
 
+/* Confetti */
 
+.confetti {
+    position:fixed;
+    width:10px;
+    height:10px;
+    background:#ffd700;
+    top:0;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
