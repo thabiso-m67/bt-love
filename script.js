@@ -99,7 +99,7 @@ function checkAnniversary() {
     // Auto close after 5 seconds
     setTimeout(() => {
         screen.classList.add("hidden");
-    }, 5000);
+    }, 15000);
 }
 
 function launchConfetti() {
