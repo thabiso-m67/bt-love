@@ -120,18 +120,18 @@ function showMemories() {
     const container = document.getElementById("memoryContainer");
 
     const images = [
-    "media/image1.jpg.jpeg">
-    "media/image2.jpg.jpeg">
-    "media/image3.jpg.jpeg">
-    "media/image4.jpg.jpeg">
-    "media/image5.jpg.jpeg">
-    "media/image6.jpg.jpeg">
-    "media/image7.jpg.jpeg">
-    "media/image8.jpg.jpeg">
-    "media/image9.jpg.jpeg">
-    "media/image10.jpg.jpeg">
-    "media/image11.jpg.jpeg">
-    "media/image12.jpg.jpeg">
+    <img src="media/image1.jpg.jpeg">
+    <img src="media/image2.jpg.jpeg">
+    <img src="media/image3.jpg.jpeg">
+    <img src="media/image4.jpg.jpeg">
+    <img src="media/image5.jpg.jpeg">
+    <img src="media/image6.jpg.jpeg">
+    <img src="media/image7.jpg.jpeg">
+    <img src="media/image8.jpg.jpeg">
+    <img src="media/image9.jpg.jpeg">
+    <img src="media/image10.jpg.jpeg">
+    <img src="media/image11.jpg.jpeg">
+    <img src="media/image12.jpg.jpeg">
     ];
 
     let index = 0;
