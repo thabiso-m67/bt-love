@@ -28,12 +28,40 @@ body {
     left:0;
     width:100%;
     height:100%;
-    background:linear-gradient(135deg,#fff5cc,#ffd700);
+    background: radial-gradient(circle at center, #fff0f3, #ffccd5, #ff4d6d);
+    overflow:hidden;
     display:flex;
     justify-content:center;
     align-items:center;
     z-index:9999;
-    animation: fadeIn 1s ease;
+}
+
+.celebration::before {
+    content:"❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤";
+    position:absolute;
+    width:200%;
+    font-size:50px;
+    opacity:0.08;
+    color:#ff1e56;
+    animation: floatHearts 25s linear infinite;
+}
+
+.heart-particle {
+    position:absolute;
+    color:#ff3366;
+    font-size:20px;
+    animation: floatUp 6s linear forwards;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh) scale(0.5);
+        opacity:0;
+    }
+    to {
+        transform: translateY(-10vh) scale(1.2);
+        opacity:1;
+    }
 }
 
 .hidden {
@@ -240,4 +268,33 @@ body::before {
 @keyframes floatParticles {
     from { transform: translateY(0); }
     to { transform: translateY(-100px); }
+}
+
+.memory-img {
+    position:absolute;
+    width:120px;
+    height:120px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    opacity:0;
+    animation: floatMemory 6s ease-in-out forwards;
+}
+
+@keyframes floatMemory {
+    0% {
+        opacity:0;
+        transform: scale(0.8) translateY(50px);
+    }
+    20% {
+        opacity:1;
+        transform: scale(1);
+    }
+    80% {
+        opacity:1;
+    }
+    100% {
+        opacity:0;
+        transform: scale(1.1) translateY(-50px);
+    }
 }
