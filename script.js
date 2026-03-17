@@ -86,15 +86,16 @@ function checkAnniversary() {
 
         launchConfetti();
     }
-    else if(day === 17){
-        // Monthly anniversary
+    
+    if(day === 17){
         screen.classList.remove("hidden");
         title.innerText = "❤️ Monthly Anniversary ❤️";
         message.innerText = "Another month of us. Loving and experiencing you has been the best thing, and I’d still choose you every time.";
 
         launchConfetti();
+        showMemories();
     }
-
+    
     // Auto close after 5 seconds
     setTimeout(() => {
         screen.classList.add("hidden");
@@ -114,3 +115,36 @@ function launchConfetti() {
 }
 
 checkAnniversary();
+
+function showMemories() {
+    const container = document.getElementById("memoryContainer");
+
+    const images = [
+        "media/image1.jpg",
+        "media/image2.jpg",
+        "media/image3.jpg",
+        "media/image4.jpg"
+    ];
+
+    let index = 0;
+
+    const interval = setInterval(() => {
+        if(index >= images.length){
+            clearInterval(interval);
+            return;
+        }
+
+        const img = document.createElement("img");
+        img.src = images[index];
+        img.classList.add("memory-img");
+
+        img.style.left = Math.random() * 80 + "%";
+        img.style.top = Math.random() * 80 + "%";
+
+        container.appendChild(img);
+
+        setTimeout(() => img.remove(), 6000);
+
+        index++;
+    }, 1000);
+}
