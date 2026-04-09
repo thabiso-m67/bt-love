@@ -1,4 +1,4 @@
-
+```javascript
 setTimeout(() => {
     document.querySelector(".envelope-container").classList.remove("hidden");
 }, 4000);
@@ -55,9 +55,10 @@ function displayMessages(){
 
 displayMessages();
 
+// 📅 LOVE TIMER (DAYS)
 const startDate = new Date("2025-10-17");
-const today = new Date();
-const diffTime = today - startDate;
+const todayGlobal = new Date();
+const diffTime = todayGlobal - startDate;
 const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
 const counter = document.getElementById("daysTogether");
@@ -69,6 +70,19 @@ function secretMessage(){
     alert("No matter what happens in this world, I choose you. Every time.");
 }
 
+// 💡 MONTH CALCULATOR
+function getMonthsTogether(startDate, currentDate) {
+    let months = (currentDate.getFullYear() - startDate.getFullYear()) * 12;
+    months += currentDate.getMonth() - startDate.getMonth();
+
+    if (currentDate.getDate() < startDate.getDate()) {
+        months--;
+    }
+
+    return months;
+}
+
+// 🎉 MAIN CELEBRATION LOGIC
 function checkAnniversary() {
     const today = new Date();
     const day = today.getDate();
@@ -78,46 +92,87 @@ function checkAnniversary() {
     const title = document.getElementById("celebrationTitle");
     const message = document.getElementById("celebrationMessage");
 
-    if(day === 17 && month === 10){
-        // Yearly anniversary
-        screen.classList.remove("hidden");
-        title.innerText = "❤️🎉 Our Anniversary ❤️🎉";
-        message.innerText = "Another year of loving you. And somehow, I love you even more.";
+    if(!screen || !title || !message) return;
 
-        launchConfetti();
-    }
-    
-    if(day === 17){
+    // 🎂 HER BIRTHDAY (16 MAY)
+    if(day === 16 && month === 5){
         screen.classList.remove("hidden");
-        title.innerText = "❤️ Monthly Anniversary ❤️";
-        message.innerText = "Another month of us. Loving and experiencing you has been the best thing, and I’d still choose you every time.";
+        title.innerText = "🎂 Happy Birthday My Love 🎂";
+        message.innerText = "Today is all about you. The most beautiful soul I know. I hope your day feels as special as you make my life every single day.";
 
-        launchConfetti();
+        launchConfetti(100);
         showMemories();
+
+        setTimeout(() => {
+            screen.classList.add("hidden");
+        }, 20000);
     }
-    
-    // Auto close after 5 seconds
-    setTimeout(() => {
-        screen.classList.add("hidden");
-    }, 15000);
+
+    // 💖 MONTHLY ANNIVERSARY + MILESTONES
+    else if(day === 17){
+        const months = getMonthsTogether(startDate, today);
+
+        let suffix = "th";
+        if(months % 10 === 1 && months !== 11) suffix = "st";
+        else if(months % 10 === 2 && months !== 12) suffix = "nd";
+        else if(months % 10 === 3 && months !== 13) suffix = "rd";
+
+        screen.classList.remove("hidden");
+
+        // 🌟 MILESTONES (every 3 months)
+        if(months % 3 === 0){
+            title.innerText = `💫 ${months}${suffix} Month Milestone 💫`;
+
+            message.innerText = `${months} months with you… that’s not small. That’s ${months} months of memories, growth, love, and choosing each other. And honestly? This is just the beginning.`;
+
+            launchConfetti(120); // BIG celebration
+            showMemories();
+
+            setTimeout(() => {
+                screen.classList.add("hidden");
+            }, 22000);
+
+        } else {
+            // 💕 NORMAL MONTH
+            title.innerText = `💖 Our ${months}${suffix} Month Anniversary 💖`;
+
+            message.innerText = `It’s been ${months} beautiful month${months > 1 ? "s" : ""} with you. Every moment still feels like something I never want to lose.`;
+
+            launchConfetti(50); // normal celebration
+            showMemories();
+
+            setTimeout(() => {
+                screen.classList.add("hidden");
+            }, 15000);
+        }
+    }
 }
 
-function launchConfetti() {
-    for(let i = 0; i < 50; i++){
+// 🎉 CONFETTI (UPGRADED)
+function launchConfetti(amount = 50) {
+    for(let i = 0; i < amount; i++){
         let confetti = document.createElement("div");
         confetti.classList.add("confetti");
+
         confetti.style.left = Math.random() * 100 + "vw";
         confetti.style.animationDuration = (2 + Math.random()*3) + "s";
+
+        const size = Math.random() * 8 + 6;
+        confetti.style.width = size + "px";
+        confetti.style.height = size + "px";
+
         document.body.appendChild(confetti);
 
-        setTimeout(() => confetti.remove(), 5000);
+        setTimeout(() => confetti.remove(), 6000);
     }
 }
 
 checkAnniversary();
 
+// 🖼️ FLOATING MEMORIES
 function showMemories() {
     const container = document.getElementById("memoryContainer");
+    if(!container) return;
 
     const images = [
         "media/image1.jpg.jpeg",
@@ -154,5 +209,6 @@ function showMemories() {
         setTimeout(() => img.remove(), 6000);
 
         index++;
-    }, 800); // slightly faster for smoother effect
+    }, 800);
 }
+```
