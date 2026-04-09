@@ -1,56 +1,56 @@
 
 setTimeout(() => {
-document.querySelector(".envelope-container").classList.remove("hidden");
+    document.querySelector(".envelope-container").classList.remove("hidden");
 }, 4000);
 
 function openPrompt() {
-let pass = prompt("Enter the password:");
-if(pass === "17-10-2025"){
-window.location.href = "love.html";
-} else {
-alert("Wrong password.");
-}
+    let pass = prompt("Enter the password:");
+    if(pass === "17-10-2025"){
+        window.location.href = "love.html";
+    } else {
+        alert("Wrong password.");
+    }
 }
 
 document.addEventListener("click", function(){
-const music = document.getElementById("bgMusic");
-if(music){
-music.volume = 0;
-music.play();
-let fade = setInterval(()=>{
-if(music.volume < 1){
-music.volume += 0.05;
-} else {
-clearInterval(fade);
-}
-},200);
-}
+    const music = document.getElementById("bgMusic");
+    if(music){
+        music.volume = 0;
+        music.play();
+        let fade = setInterval(()=>{
+            if(music.volume < 1){
+                music.volume += 0.05;
+            } else {
+                clearInterval(fade);
+            }
+        },200);
+    }
 },{once:true});
 
 function addMessage(){
-let text = document.getElementById("newMessage").value;
-if(text.trim() === "") return;
+    let text = document.getElementById("newMessage").value;
+    if(text.trim() === "") return;
 
-let messages = JSON.parse(localStorage.getItem("loveMessages")) || [];
-messages.push(text);
-localStorage.setItem("loveMessages", JSON.stringify(messages));
+    let messages = JSON.parse(localStorage.getItem("loveMessages")) || [];
+    messages.push(text);
+    localStorage.setItem("loveMessages", JSON.stringify(messages));
 
-displayMessages();
-document.getElementById("newMessage").value = "";
+    displayMessages();
+    document.getElementById("newMessage").value = "";
 }
 
 function displayMessages(){
-let list = document.getElementById("messageList");
-if(!list) return;
+    let list = document.getElementById("messageList");
+    if(!list) return;
 
-list.innerHTML="";
-let messages = JSON.parse(localStorage.getItem("loveMessages")) || [];
+    list.innerHTML="";
+    let messages = JSON.parse(localStorage.getItem("loveMessages")) || [];
 
-messages.forEach(msg=>{
-let p = document.createElement("p");
-p.textContent = msg;
-list.appendChild(p);
-});
+    messages.forEach(msg=>{
+        let p = document.createElement("p");
+        p.textContent = msg;
+        list.appendChild(p);
+    });
 }
 
 displayMessages();
@@ -62,76 +62,64 @@ const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
 const counter = document.getElementById("daysTogether");
 if (counter) {
-counter.textContent = diffDays;
+    counter.textContent = diffDays;
 }
 
 function secretMessage(){
-alert("No matter what happens in this world, I choose you. Every time.");
+    alert("No matter what happens in this world, I choose you. Every time.");
 }
 
 function checkAnniversary() {
-const today = new Date();
-const day = today.getDate();
-const month = today.getMonth() + 1;
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth() + 1;
 
-const screen = document.getElementById("celebrationScreen");
-const title = document.getElementById("celebrationTitle");
-const message = document.getElementById("celebrationMessage");
+    const screen = document.getElementById("celebrationScreen");
+    const title = document.getElementById("celebrationTitle");
+    const message = document.getElementById("celebrationMessage");
 
-if(day === 17 && month === 10){
-// Yearly anniversary
-screen.classList.remove("hidden");
-title.innerText = "❤️🎉 Our Anniversary ❤️🎉";
-message.innerText = "Another year of loving you. And somehow, I love you even more.";
+    if(day === 17 && month === 10){
+        // Yearly anniversary
+        screen.classList.remove("hidden");
+        title.innerText = "❤️🎉 Our Anniversary ❤️🎉";
+        message.innerText = "Another year of loving you. And somehow, I love you even more.";
 
-launchConfetti();
-}
+        launchConfetti();
+    }
+    
+    if(day === 17){
+        screen.classList.remove("hidden");
+        title.innerText = "❤️ Monthly Anniversary ❤️";
+        message.innerText = "Another month of us. Loving and experiencing you has been the best thing, and I’d still choose you every time.";
 
-if(day === 17){
-screen.classList.remove("hidden");
-title.innerText = "❤️ Monthly Anniversary ❤️";
-message.innerText = "Another month of us. Loving and experiencing you has been the best thing, and I’d still choose you every time.";
-
-launchConfetti();
-showMemories();
-}
-
-// Auto close after 5 seconds
-setTimeout(() => {
-screen.classList.add("hidden");
-}, 15000);
+        launchConfetti();
+        showMemories();
+    }
+    
+    // Auto close after 5 seconds
+    setTimeout(() => {
+        screen.classList.add("hidden");
+    }, 15000);
 }
 
 function launchConfetti() {
-for(let i = 0; i < 50; i++){
-let confetti = document.createElement("div");
-confetti.classList.add("confetti");
-confetti.style.left = Math.random() * 100 + "vw";
-confetti.style.animationDuration = (2 + Math.random()*3) + "s";
-document.body.appendChild(confetti);
+    for(let i = 0; i < 50; i++){
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.animationDuration = (2 + Math.random()*3) + "s";
+        document.body.appendChild(confetti);
 
-setTimeout(() => confetti.remove(), 5000);
-}
+        setTimeout(() => confetti.remove(), 5000);
+    }
 }
 
 checkAnniversary();
 
 function showMemories() {
-const container = document.getElementById("memoryContainer");
+    const container = document.getElementById("memoryContainer");
 
-const images = [
-    <img src="media/image1.jpg.jpeg">
-    <img src="media/image2.jpg.jpeg">
-    <img src="media/image3.jpg.jpeg">
-    <img src="media/image4.jpg.jpeg">
-    <img src="media/image5.jpg.jpeg">
-    <img src="media/image6.jpg.jpeg">
-    <img src="media/image7.jpg.jpeg">
-    <img src="media/image8.jpg.jpeg">
-    <img src="media/image9.jpg.jpeg">
-    <img src="media/image10.jpg.jpeg">
-    <img src="media/image11.jpg.jpeg">
-    <img src="media/image12.jpg.jpeg">
+    const images = [
         "media/image1.jpg.jpeg",
         "media/image2.jpg.jpeg",
         "media/image3.jpg.jpeg",
@@ -144,13 +132,27 @@ const images = [
         "media/image10.jpg.jpeg",
         "media/image11.jpg.jpeg",
         "media/image12.jpg.jpeg"
-];
+    ];
 
-let index = 0;
-@@ -154,5 +154,5 @@
-setTimeout(() => img.remove(), 6000);
+    let index = 0;
 
-index++;
-    }, 1000);
+    const interval = setInterval(() => {
+        if(index >= images.length){
+            clearInterval(interval);
+            return;
+        }
+
+        const img = document.createElement("img");
+        img.src = images[index];
+        img.classList.add("memory-img");
+
+        img.style.left = Math.random() * 80 + "%";
+        img.style.top = Math.random() * 80 + "%";
+
+        container.appendChild(img);
+
+        setTimeout(() => img.remove(), 6000);
+
+        index++;
     }, 800); // slightly faster for smoother effect
 }
