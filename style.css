@@ -1,3 +1,5 @@
+style.css
+
 body {
     margin:0;
     font-family: 'Georgia', serif;
@@ -142,31 +144,6 @@ body {
     transform:translate(-50%,-50%);
     font-size:24px;
     font-weight:bold;
-}
-
-.experience {
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:black;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:10000;
-}
-
-.experience-content {
-    font-size:24px;
-    max-width:600px;
-    text-align:center;
-    line-height:1.6;
-}
-
-.hidden {
-    display:none;
 }
 
 .love-page {
