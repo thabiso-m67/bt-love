@@ -113,30 +113,44 @@ function checkAnniversary() {
     // =========================
     // ❤️ 6 MONTH CINEMATIC MODE
     // =========================
-    if (day === 17 && monthsPassed === 6) {
+   if (day === 17 && monthsPassed === 6) {
 
-        screen.classList.remove("hidden");
-        screen.classList.add("cinematic-overlay");
+    screen.classList.remove("hidden");
+    screen.classList.add("cinematic-overlay");
 
-        title.innerText = "Six Months With You";
-        title.classList.add("cinematic-title");
+    title.innerText = "Six Months With You";
+    title.classList.add("cinematic-title");
 
-        message.classList.add("cinematic-message");
+    const msgEl = document.getElementById("celebrationMessage");
+    msgEl.classList.add("cinematic-message");
 
-        typeWriterEffect(
-            "Six months ago, life became quieter in the best way. You didn’t just come into my world… you softened it. And somehow, every day since then has felt more like home.",
-            "celebrationMessage"
-        );
+    typeWriterEffect(
+        "Six months ago, life became quieter in the best way. You didn’t just come into my world… you softened it. And somehow, every day since then has felt more like home.",
+        "celebrationMessage"
+    );
 
-        launchCinematicMusic();
-        showCinematicMemories();
+    launchCinematicMusic();
+    showCinematicMemories();
 
-        setTimeout(() => {
-            screen.classList.add("hidden");
-        }, 30000);
+    // ✅ CLEAN EXIT FIX
+    setTimeout(() => {
 
-        return;
-    }
+        // hide screen
+        screen.classList.add("hidden");
+
+        // reset cinematic styles (IMPORTANT)
+        screen.classList.remove("cinematic-overlay");
+        title.classList.remove("cinematic-title");
+        msgEl.classList.remove("cinematic-message");
+
+        // clear memory container so it doesn't stay stuck
+        const container = document.getElementById("memoryContainer");
+        if (container) container.innerHTML = "";
+
+    }, 30000);
+
+    return;
+}
 
 
     // =====================
