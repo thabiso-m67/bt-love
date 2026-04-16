@@ -347,3 +347,16 @@ button {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+.cinematic-message {
+    font-size: 22px;
+    max-width: 700px;
+    line-height: 1.8;
+    opacity: 0.9;
+    margin-top: 20px;
+}
+
+.cinematic-overlay {
+    background: radial-gradient(circle at center, #0f0a08, #000000) !important;
+    transition: opacity 3s ease;
+}
