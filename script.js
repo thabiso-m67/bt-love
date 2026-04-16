@@ -77,8 +77,29 @@ function checkAnniversary() {
     const title = document.getElementById("celebrationTitle");
     const message = document.getElementById("celebrationMessage");
 
+    // 🔥 6 MONTH SPECIAL (April 17)
+    if(day === 17 && month === 4){
+        screen.classList.remove("hidden");
+
+        title.innerText = "❤️ 6 Months With You ❤️";
+
+        typeWriterEffect(
+            "6 months of loving you, laughing with you, growing with you… and somehow it still feels like I’m just getting started. And 6 months later, I still look at you like I got lucky. You are my favourite person, my peace, and the best thing that’s ever happened to me.",
+            "celebrationMessage"
+        );
+
+        launchMegaConfetti();
+        showMegaMemories();
+
+        setTimeout(() => {
+            screen.classList.add("hidden");
+        }, 20000);
+
+        return; // stops other triggers
+    }
+
+    // 🎉 Yearly anniversary
     if(day === 17 && month === 10){
-        // Yearly anniversary
         screen.classList.remove("hidden");
         title.innerText = "❤️🎉 Our Anniversary ❤️🎉";
         message.innerText = "Another year of loving you. And somehow, I love you even more.";
@@ -86,6 +107,7 @@ function checkAnniversary() {
         launchConfetti();
     }
     
+    // 💕 Monthly anniversary
     if(day === 17){
         screen.classList.remove("hidden");
         title.innerText = "❤️ Monthly Anniversary ❤️";
@@ -95,7 +117,6 @@ function checkAnniversary() {
         showMemories();
     }
     
-    // Auto close after 5 seconds
     setTimeout(() => {
         screen.classList.add("hidden");
     }, 15000);
@@ -110,6 +131,20 @@ function launchConfetti() {
         document.body.appendChild(confetti);
 
         setTimeout(() => confetti.remove(), 5000);
+    }
+}
+
+// 🔥 MEGA CONFETTI (6 MONTHS)
+function launchMegaConfetti() {
+    for(let i = 0; i < 120; i++){
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.animationDuration = (2 + Math.random()*4) + "s";
+        confetti.style.transform = `scale(${Math.random() * 1.5})`;
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 7000);
     }
 }
 
@@ -153,6 +188,66 @@ function showMemories() {
         setTimeout(() => img.remove(), 6000);
 
         index++;
-    }, 800); // slightly faster for smoother effect
+    }, 800);
 }
 
+// 🔥 ENHANCED MEMORY BURST
+function showMegaMemories() {
+    const container = document.getElementById("memoryContainer");
+
+    const images = [
+        "media/image1.jpg.jpeg",
+        "media/image2.jpg.jpeg",
+        "media/image3.jpg.jpeg",
+        "media/image4.jpg.jpeg",
+        "media/image5.jpg.jpeg",
+        "media/image6.jpg.jpeg",
+        "media/image7.jpg.jpeg",
+        "media/image8.jpg.jpeg",
+        "media/image9.jpg.jpeg",
+        "media/image10.jpg.jpeg",
+        "media/image11.jpg.jpeg",
+        "media/image12.jpg.jpeg"
+    ];
+
+    let index = 0;
+
+    const interval = setInterval(() => {
+        if(index >= images.length){
+            clearInterval(interval);
+            return;
+        }
+
+        const img = document.createElement("img");
+        img.src = images[index];
+        img.classList.add("memory-img");
+
+        img.style.left = Math.random() * 80 + "%";
+        img.style.top = Math.random() * 80 + "%";
+        img.style.transform = `scale(${0.8 + Math.random()})`;
+
+        container.appendChild(img);
+
+        setTimeout(() => img.remove(), 8000);
+
+        index++;
+    }, 500);
+}
+
+// ✨ TYPEWRITER EFFECT
+function typeWriterEffect(text, elementId){
+    let i = 0;
+    const speed = 40;
+    const element = document.getElementById(elementId);
+    element.innerHTML = "";
+
+    function type(){
+        if(i < text.length){
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+
+    type();
+}
