@@ -1,14 +1,12 @@
-console.log("🔥 NEW SCRIPT LOADED");
+console.log("🔥 Cinematic Script Loaded");
 
 window.addEventListener("load", () => {
 
-    // 🔥 Force envelope show
     setTimeout(() => {
         const envelope = document.querySelector(".envelope-container");
         if (envelope) envelope.classList.remove("hidden");
     }, 4000);
 
-    // 🔊 Music starts on first click
     document.addEventListener("click", function () {
         const music = document.getElementById("bgMusic");
         if (music && music.paused) {
@@ -16,8 +14,8 @@ window.addEventListener("load", () => {
             music.play();
 
             let fade = setInterval(() => {
-                if (music.volume < 1) {
-                    music.volume += 0.05;
+                if (music.volume < 0.7) {
+                    music.volume += 0.02;
                 } else {
                     clearInterval(fade);
                 }
@@ -32,12 +30,12 @@ window.addEventListener("load", () => {
 
 
 // =====================
-// ENVELOPE PASSWORD
+// PASSWORD GATE
 // =====================
 function openPrompt() {
     let pass = prompt("Enter the password:");
     if (pass === "17-10-2025") {
-        window.location.href = "love.html?v=2";
+        window.location.href = "love.html?v=cinematic";
     } else {
         alert("Wrong password.");
     }
@@ -45,7 +43,7 @@ function openPrompt() {
 
 
 // =====================
-// MESSAGES SYSTEM
+// MESSAGES
 // =====================
 function addMessage() {
     let text = document.getElementById("newMessage").value;
@@ -91,15 +89,7 @@ function updateDaysCounter() {
 
 
 // =====================
-// SECRET
-// =====================
-function secretMessage() {
-    alert("No matter what happens in this world, I choose you. Every time.");
-}
-
-
-// =====================
-// ANNIVERSARY LOGIC (FIXED)
+// ANNIVERSARY LOGIC
 // =====================
 function checkAnniversary() {
 
@@ -113,44 +103,46 @@ function checkAnniversary() {
 
     if (!screen || !title || !message) return;
 
-    console.log("Checking anniversary:", day, month);
-
     const start = new Date("2025-10-17");
+
     const monthsPassed =
         (today.getFullYear() - start.getFullYear()) * 12 +
         (today.getMonth() - start.getMonth());
 
 
-    // =====================
-    // ❤️ 6 MONTH SPECIAL
-    // =====================
+    // =========================
+    // ❤️ 6 MONTH CINEMATIC MODE
+    // =========================
     if (day === 17 && monthsPassed === 6) {
 
         screen.classList.remove("hidden");
+        screen.classList.add("cinematic-overlay");
 
-        title.innerText = "❤️ 6 Months With You ❤️";
+        title.innerText = "Six Months With You";
+        title.classList.add("cinematic-title");
+
+        message.classList.add("cinematic-message");
 
         typeWriterEffect(
-            "6 months of loving you, laughing with you, growing with you… and somehow it still feels like I’m just getting started. And 6 months later, I still look at you like I got lucky.",
+            "Six months ago, life became quieter in the best way. You didn’t just come into my world… you softened it. And somehow, every day since then has felt more like home.",
             "celebrationMessage"
         );
 
-        launchMegaConfetti();
-        showMegaMemories();
+        launchCinematicMusic();
+        showCinematicMemories();
 
         setTimeout(() => {
             screen.classList.add("hidden");
-        }, 20000);
+        }, 30000);
 
         return;
     }
 
 
     // =====================
-    // 🎉 YEARLY ANNIVERSARY
+    // YEARLY
     // =====================
     if (day === 17 && month === 10) {
-
         screen.classList.remove("hidden");
 
         title.innerText = "❤️🎉 Our Anniversary ❤️🎉";
@@ -161,21 +153,20 @@ function checkAnniversary() {
 
 
     // =====================
-    // 💕 MONTHLY ANNIVERSARY
+    // MONTHLY
     // =====================
     if (day === 17) {
-
         screen.classList.remove("hidden");
 
         title.innerText = "❤️ Monthly Anniversary ❤️";
-        message.innerText = "Another month of us. Loving and experiencing you has been the best thing, and I’d still choose you every time.";
+        message.innerText = "Another month of us. I’d still choose you every time.";
 
         launchConfetti();
         showMemories();
     }
 
     setTimeout(() => {
-        if (screen) screen.classList.add("hidden");
+        screen.classList.add("hidden");
     }, 15000);
 }
 
@@ -198,38 +189,36 @@ function launchConfetti() {
 
 
 // =====================
-// MEGA CONFETTI
+// CINEMATIC MUSIC
 // =====================
-function launchMegaConfetti() {
-    for (let i = 0; i < 120; i++) {
-        let confetti = document.createElement("div");
-        confetti.classList.add("confetti");
-        confetti.style.left = Math.random() * 100 + "vw";
-        confetti.style.animationDuration = (2 + Math.random() * 4) + "s";
-        confetti.style.transform = `scale(${Math.random() * 1.5})`;
+function launchCinematicMusic() {
+    const music = document.getElementById("bgMusic");
+    if (!music) return;
 
-        document.body.appendChild(confetti);
+    music.volume = 0;
 
-        setTimeout(() => confetti.remove(), 7000);
+    const playPromise = music.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {});
     }
+
+    let fade = setInterval(() => {
+        if (music.volume < 0.6) {
+            music.volume += 0.02;
+        } else {
+            clearInterval(fade);
+        }
+    }, 200);
 }
 
 
 // =====================
-// MEMORIES
+// CINEMATIC MEMORIES
 // =====================
-function showMemories() {
-    createMemoryBurst(800);
-}
-
-function showMegaMemories() {
-    createMemoryBurst(500);
-}
-
-function createMemoryBurst(speed) {
+function showCinematicMemories() {
 
     const container = document.getElementById("memoryContainer");
-    if (!container) return;
 
     const images = [
         "media/image1.jpg.jpeg",
@@ -257,18 +246,18 @@ function createMemoryBurst(speed) {
 
         const img = document.createElement("img");
         img.src = images[index];
-        img.classList.add("memory-img");
+        img.classList.add("cinematic-img");
 
-        img.style.left = Math.random() * 80 + "%";
-        img.style.top = Math.random() * 80 + "%";
+        img.style.left = Math.random() * 70 + "%";
+        img.style.top = Math.random() * 70 + "%";
 
         container.appendChild(img);
 
-        setTimeout(() => img.remove(), 8000);
+        setTimeout(() => img.remove(), 9000);
 
         index++;
 
-    }, speed);
+    }, 900);
 }
 
 
@@ -278,7 +267,7 @@ function createMemoryBurst(speed) {
 function typeWriterEffect(text, elementId) {
 
     let i = 0;
-    const speed = 40;
+    const speed = 70;
     const element = document.getElementById(elementId);
 
     if (!element) return;
