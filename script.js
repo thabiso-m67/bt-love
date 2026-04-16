@@ -185,7 +185,7 @@ function runCinematicSequence(screen, title, messageEl) {
 
         // text begins
         typeWriterEffect(
-            "Six months ago, I didn’t know life could feel this calm. You didn’t just become part of my days… you became the quiet in them.",
+            "Six months ago, I didn’t know life could feel any better, but each day it gets better with you. You didn’t just become part of my days… you beame my joy everyday.",
             "celebrationMessage"
         );
 
@@ -283,7 +283,8 @@ function showHiddenMessage() {
 
             <p style="margin-top:20px; font-size:20px; max-width:600px;">
                 But I saved this part for the end.<br><br>
-                I choose you in the quiet days, not just the special ones.
+                You have been a shinning light in my life and you make my days calmer and my life happier. Doing life with you is amazing and I wouldn't want it any other way.<br><br>
+                Oh and WAZZZZZZZUUUPPP my love:)
             </p>
         </div>
     `;
