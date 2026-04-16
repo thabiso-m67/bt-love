@@ -8,12 +8,6 @@
 
 <body class="love-page">
 
-<div id="sixMonthExperience" class="experience hidden">
-    <div class="experience-content">
-        <p id="experienceText"></p>
-    </div>
-</div>
-
 <div id="celebrationScreen" class="celebration hidden">
     <div id="memoryContainer"></div>
 
@@ -23,32 +17,22 @@
     </div>
 </div>
 
-<!-- MUSIC (kept your original + added selector) -->
 <audio id="bgMusic" loop>
   <source src="media/music.mp3.mp3" type="audio/mpeg">
 </audio>
 
-<div class="music-player fade-in">
-    <select id="songSelector" onchange="changeSong()">
-        <option value="media/music.mp3.mp3">Default Song</option>
-        <option value="media/song1.mp3">Song 1</option>
-        <option value="media/song2.mp3">Song 2</option>
-    </select>
-</div>
-
 <div class="gold-particles"></div>
+  
 <div class="floating-hearts"></div>
 
 <h1 class="main-title fade-in">WAAAAAZZZUUUUUPPPPP ❤️</h1>
 
-<!-- DAYS COUNTER -->
 <div class="love-timer fade-in">
     <div class="timer-title">Our Love Has Been Blooming For</div>
     <div class="timer-number" id="daysTogether"></div>
     <div class="timer-label">Beautiful Days</div>
 </div>
 
-<!-- MAIN LETTER -->
 <div class="main-letter fade-in">
     <h2>A Letter For You</h2>
     <p>
@@ -67,10 +51,6 @@
     </p>
 </div>
 
-<!-- 🆕 TIMELINE (NEW) -->
-<h2>Our Journey 💌</h2>
-<div id="timeline"></div>
-
 <h2>Our Memories</h2>
 <div class="gallery fade-in">
     <img src="media/image1.jpg.jpeg">
@@ -85,6 +65,7 @@
     <img src="media/image10.jpg.jpeg">
     <img src="media/image11.jpg.jpeg">
     <img src="media/image12.jpg.jpeg">
+  
 </div>
 
 <h2>Our Moments</h2>
@@ -101,17 +82,6 @@
 <textarea id="newMessage" placeholder="Write something from your heart..."></textarea>
 <br>
 <button onclick="addMessage()">Send</button>
-
-<!-- 🆕 GIFT FEATURE -->
-<button onclick="openGift()">🎁 Open Your Gift</button>
-
-<div id="giftBox" class="hidden">
-    <p>
-        This is just the beginning of everything I want to give you.
-        <br><br>
-        More love. More memories. More us.
-    </p>
-</div>
 
 <div class="secret-heart" onclick="secretMessage()">♥</div>
 
