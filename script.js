@@ -116,6 +116,22 @@ function launchConfetti() {
 
 checkAnniversary();
 
+else if(day === 17 && months === 6){
+    startSixMonthExperience();
+
+    // then normal celebration after
+    setTimeout(() => {
+        screen.classList.remove("hidden");
+
+        title.innerText = "💛 6 Months With You 💛";
+        message.innerText = "Six months of loving you… and I’d still choose you every time.";
+
+        launchConfetti();
+        launchHearts();
+        showMemories();
+    }, 25000);
+}
+
 function showMemories() {
     const container = document.getElementById("memoryContainer");
 
@@ -155,4 +171,48 @@ function showMemories() {
 
         index++;
     }, 800); // slightly faster for smoother effect
+}
+
+function startSixMonthExperience(){
+
+    const screen = document.getElementById("sixMonthExperience");
+    const text = document.getElementById("experienceText");
+    const player = document.getElementById("bgMusic");
+
+    screen.classList.remove("hidden");
+
+    player.src = "media/milestone.mp3"; // your special song
+    player.play();
+
+    const messages = [
+        "6 months ago…",
+        "you walked into my life.",
+        "And somehow… everything changed.",
+        "You became my peace.",
+        "My happiness.",
+        "My home.",
+        "",
+        "And if I had to choose again…",
+        "I would still choose you.",
+        "",
+        "Every time.",
+        "",
+        "Happy 6 Months ❤️"
+    ];
+
+    let i = 0;
+
+    function nextLine(){
+        if(i < messages.length){
+            text.innerText = messages[i];
+            i++;
+            setTimeout(nextLine, 2000);
+        } else {
+            setTimeout(() => {
+                screen.classList.add("hidden");
+            }, 3000);
+        }
+    }
+
+    nextLine();
 }
