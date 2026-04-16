@@ -154,4 +154,22 @@ function showMemories() {
 
         index++;
     }, 800); // slightly faster for smoother effect
+
+    if(day === 17 && month === 4){ // April 17 = 6 months from Oct 17
+    screen.classList.remove("hidden");
+
+    title.innerText = "❤️ 6 Months With You ❤️";
+
+    typeWriterEffect("6 months of loving you, laughing with you, growing with you… and somehow it still feels like I’m just getting started. You are my favourite person, my peace, and the best thing that’s ever happened to me.", "celebrationMessage");
+
+    launchMegaConfetti();
+    showMegaMemories();
+
+    setTimeout(() => {
+        screen.classList.add("hidden");
+    }, 20000);
+
+    return; // IMPORTANT → stops normal monthly from triggering
+}
+    
 }
