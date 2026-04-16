@@ -185,7 +185,7 @@ function runCinematicSequence(screen, title, messageEl) {
 
         // text begins
         typeWriterEffect(
-            "Six months ago, I didn’t know life could feel any better, but each day it gets better with you. You didn’t just become part of my days… you beame my joy everyday.",
+            "Six months ago, I didn’t know life could feel any better, but each day it gets better with you. You didn’t just become part of my days… you became my joy everyday.",
             "celebrationMessage"
         );
 
