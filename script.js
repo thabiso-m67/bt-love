@@ -381,7 +381,7 @@ function startBirthdayStory(){
 
             sections[current].classList.add("active");
 
-            setTimeout(nextSection, 8000);
+            setTimeout(nextSection, 11000);
         }
 
         else{
@@ -417,12 +417,52 @@ function startBirthdayStory(){
         }
     }
 
-    setTimeout(nextSection, 8000);
+    setTimeout(nextSection, 11000);
 }
 
 function playVoiceNote(){
 
     const voice = new Audio("media/voice.mp3");
+    const music = document.getElementById("bgMusic");
 
-    voice.play();
+    // fade out background music
+    if(music){
+        let v = music.volume;
+
+        let fadeOut = setInterval(() => {
+            if(v > 0.05){
+                v -= 0.05;
+                music.volume = v;
+            } else {
+                music.pause();
+                clearInterval(fadeOut);
+            }
+        }, 80);
+    }
+
+    // play voice after small delay
+    setTimeout(() => {
+        voice.volume = 1;
+        voice.play();
+    }, 800);
+
+    // restore music AFTER voice ends
+    voice.onended = () => {
+
+        if(music){
+            music.play();
+
+            let v = 0;
+            music.volume = 0;
+
+            let fadeIn = setInterval(() => {
+                if(v < 0.6){
+                    v += 0.05;
+                    music.volume = v;
+                } else {
+                    clearInterval(fadeIn);
+                }
+            }, 80);
+        }
+    };
 }
