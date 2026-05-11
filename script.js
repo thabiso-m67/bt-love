@@ -342,3 +342,80 @@ function showMemories() {
     const container = document.getElementById("memoryContainer");
     container.innerHTML = "";
 }
+
+// =========================
+// BIRTHDAY STORY
+// =========================
+
+function startBirthdayStory(){
+
+    const story = document.getElementById("birthdayStory");
+    const sections = document.querySelectorAll(".story-section");
+
+    const player = document.getElementById("bgMusic");
+
+    story.classList.remove("hidden");
+
+    // birthday music
+    if(player){
+        player.src = "media/birthday.mp3";
+        player.play().catch(()=>{});
+    }
+
+    let current = 0;
+
+    function nextSection(){
+
+        if(current < sections.length - 1){
+
+            sections[current].classList.remove("active");
+
+            current++;
+
+            sections[current].classList.add("active");
+
+            setTimeout(nextSection, 8000);
+        }
+
+        else{
+
+            setTimeout(() => {
+
+                story.classList.add("hidden");
+
+                // normal celebration after story
+                const screen = document.getElementById("celebrationScreen");
+
+                const title = document.getElementById("celebrationTitle");
+
+                const message = document.getElementById("celebrationMessage");
+
+                screen.classList.remove("hidden");
+
+                title.innerText = "🎂 Happy Birthday My Love 🎂";
+
+                message.innerText =
+                "Thank you for existing. Thank you for being you.";
+
+                launchConfetti();
+                showCinematicPhotos(
+                    document.getElementById("memoryContainer")
+                );
+
+                setTimeout(() => {
+                    screen.classList.add("hidden");
+                }, 15000);
+
+            }, 8000);
+        }
+    }
+
+    setTimeout(nextSection, 8000);
+}
+
+function playVoiceNote(){
+
+    const voice = new Audio("media/voice.mp3");
+
+    voice.play();
+}
