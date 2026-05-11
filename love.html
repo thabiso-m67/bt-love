@@ -8,6 +8,80 @@
 
 <body class="love-page">
 
+<!-- =========================
+BIRTHDAY STORY EXPERIENCE
+========================= -->
+<div id="birthdayStory" class="birthday-story hidden">
+
+    <div class="story-content">
+
+        <div class="story-section active" id="section1">
+            <h1>Tonight isn’t about gifts.</h1>
+            <p>It’s about you.</p>
+        </div>
+
+        <div class="story-section">
+            <h1>The Energy You Bring</h1>
+
+            <div class="story-gallery">
+                <img src="media/image1.jpg.jpeg">
+                <img src="media/image2.jpg.jpeg">
+                <img src="media/image3.jpg.jpeg">
+            </div>
+
+            <p>You make life feel lighter without even trying.</p>
+        </div>
+
+        <div class="story-section">
+            <h1>The Parts Of You I Admire</h1>
+
+            <div class="typing-lines">
+                <p>Your kindness.</p>
+                <p>Your softness.</p>
+                <p>Your strength.</p>
+                <p>Your heart.</p>
+            </div>
+        </div>
+
+        <div class="story-section">
+            <h1>Us.</h1>
+
+            <div class="story-gallery">
+                <img src="media/image4.jpg.jpeg">
+                <img src="media/image5.jpg.jpeg">
+                <img src="media/image6.jpg.jpeg">
+            </div>
+
+            <p>Somewhere along the way… you became home.</p>
+        </div>
+
+        <div class="story-section">
+            <h1>The Future</h1>
+
+            <div class="typing-lines">
+                <p>More adventures.</p>
+                <p>More memories.</p>
+                <p>More late night talks.</p>
+                <p>More you.</p>
+            </div>
+        </div>
+
+        <div class="story-section">
+            <h1>One Last Thing...</h1>
+
+            <button onclick="playVoiceNote()" class="voice-btn">
+                🎙️ Press Here
+            </button>
+
+            <p class="small-text">
+                I wanted you to have something you could always come back to.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
 <!-- Celebration / Cinematic Screen -->
 <div id="celebrationScreen" class="celebration hidden">
 
@@ -57,6 +131,7 @@
 </div>
 
 <h2>Our Memories</h2>
+
 <div class="gallery fade-in">
     <img src="media/image1.jpg.jpeg">
     <img src="media/image2.jpg.jpeg">
@@ -73,6 +148,7 @@
 </div>
 
 <h2>Our Moments</h2>
+
 <video controls src="media/video1.mp4.mp4"></video>
 <video controls src="media/video2.mp4.mp4"></video>
 <video controls src="media/video3.mp4.mp4"></video>
@@ -85,12 +161,16 @@
 
 <textarea id="newMessage" placeholder="Write something from your heart..."></textarea>
 <br>
+
 <button onclick="addMessage()">Send</button>
 
 <div class="secret-heart" onclick="secretMessage()">♥</div>
 
-<p class="ending-line">In every lifetime, I’d still find you.</p>
+<p class="ending-line">
+    In every lifetime, I’d still find you.
+</p>
 
-<script src="script.js?v=3"></script>
+<script src="script.js?v=10"></script>
+
 </body>
 </html>
