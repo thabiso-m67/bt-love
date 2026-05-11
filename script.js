@@ -95,7 +95,7 @@ function updateDaysCounter() {
 // =========================
 function checkAnniversary() {
 
-    const today = new Date();
+    const today = new Date("2026-05-16");
     const day = today.getDate();
     const month = today.getMonth() + 1;
     // 🎂 Birthday
