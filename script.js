@@ -98,6 +98,13 @@ function checkAnniversary() {
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
+    // 🎂 Birthday
+if(day === 16 && month === 5){
+
+    startBirthdayStory();
+
+    return;
+}
 
     const screen = document.getElementById("celebrationScreen");
     const title = document.getElementById("celebrationTitle");
