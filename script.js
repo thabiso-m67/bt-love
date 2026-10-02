@@ -1011,3 +1011,77 @@ function playVoiceNote() {
     };
 
 }
+
+function secretMessage() {
+
+    const screen = document.getElementById("celebrationScreen");
+
+    if (!screen) return;
+
+    screen.classList.remove("hidden");
+
+    screen.classList.add("cinematic-overlay");
+
+    screen.innerHTML = `
+        <div style="
+            text-align:center;
+            color:#f5e6d3;
+            padding:30px;
+        ">
+
+            <div style="
+                font-size:60px;
+                margin-bottom:25px;
+            ">
+                ❤️
+            </div>
+
+            <h1 style="
+                font-size:42px;
+                letter-spacing:3px;
+            ">
+                You Found It.
+            </h1>
+
+            <p style="
+                margin-top:25px;
+                font-size:21px;
+                line-height:1.9;
+                max-width:650px;
+                margin-left:auto;
+                margin-right:auto;
+            ">
+                If you clicked this little heart,
+                then you were curious enough to find
+                one of the little secrets I left for you.
+                <br><br>
+                And honestly...
+                <br><br>
+                I love that about you.
+                <br><br>
+                I love you, My Princess. ❤️
+            </p>
+
+        </div>
+    `;
+
+    setTimeout(() => {
+
+        screen.classList.add("hidden");
+
+        screen.innerHTML = `
+            <div id="memoryContainer"></div>
+
+            <div class="celebration-content">
+
+                <h1 id="celebrationTitle">
+                    ❤️
+                </h1>
+
+                <p id="celebrationMessage"></p>
+
+            </div>
+        `;
+
+    }, 10000);
+}
