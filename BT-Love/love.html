@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Love</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -9,34 +11,98 @@
 <body class="love-page">
 
 <audio id="bgMusic" loop>
-  <source src="media/music.mp3.mp3" type="audio/mpeg">
+    <source src="media/music.mp3.mp3" type="audio/mpeg">
 </audio>
 
 <div class="floating-hearts"></div>
 
-<h1 class="main-title fade-in">WAAAAAZZZUUUUUPPPPP ❤️</h1>
+<section class="anniversary-hero">
 
-<p class="days-counter fade-in" id="daysTogether"></p>
+```
+<p class="hero-date">17 OCTOBER 2025 — 17 OCTOBER 2026</p>
+
+<h1 class="main-title">ONE YEAR<br>OF US ❤️</h1>
+
+<p class="hero-subtitle">
+    One year ago, our story began.
+</p>
+
+<div class="year-number">1</div>
+
+<p class="hero-message">
+    And somehow, I'd choose every moment<br>
+    all over again.
+</p>
+
+<div class="scroll-hint">
+    ↓<br>
+    <span>Our story continues</span>
+</div>
+```
+
+</section>
+
+<section class="counter-section">
+
+```
+<p class="section-label">OUR TIME TOGETHER</p>
+
+<h2>We've been writing our story for...</h2>
+
+<div class="counter-grid">
+
+    <div class="counter-box">
+        <span id="counterDays">0</span>
+        <small>Days</small>
+    </div>
+
+    <div class="counter-box">
+        <span id="counterHours">0</span>
+        <small>Hours</small>
+    </div>
+
+    <div class="counter-box">
+        <span id="counterMinutes">0</span>
+        <small>Minutes</small>
+    </div>
+
+    <div class="counter-box">
+        <span id="counterSeconds">0</span>
+        <small>Seconds</small>
+    </div>
+
+</div>
+
+<p class="counting-text">And counting... ❤️</p>
+```
+
+</section>
 
 <div class="main-letter fade-in">
-    <h2>A Letter For You</h2>
-    <p>
-        You walked into my life  
-        and somehow made everything softer.
-        <br><br>
-        Quieter.
-        <br><br>
-        Safer.
-        <br><br>
-        Loving you isn’t loud or chaotic.  
-        It’s steady. It’s intentional.
-        <br><br>
-        And I would choose you —  
-        in every version of my life.
-    </p>
+
+```
+<h2>A Letter For You</h2>
+
+<p>
+    You walked into my life  
+    and somehow made everything softer.
+    <br><br>
+    Quieter.
+    <br><br>
+    Safer.
+    <br><br>
+    Loving you isn’t loud or chaotic.  
+    It’s steady. It’s intentional.
+    <br><br>
+    And I would choose you —  
+    in every version of my life.
+</p>
+```
+
 </div>
 
 <h2>Our Memories</h2>
+
 <div class="gallery fade-in">
     <img src="media/image1.jpg.jpeg">
     <img src="media/image2.jpg.jpeg">
@@ -49,25 +115,26 @@
 </div>
 
 <h2>Our Moments</h2>
-<video controls src="media/video1.mp4.mp4" class="fade-in"></video>
-<video controls src="media/video2.mp4.mp4" class="fade-in"></video>
-<video controls src="media/video3.mp4.mp4" class="fade-in"></video>
-<video controls src="media/video4.mp4.mp4" class="fade-in"></video>
-<video controls src="media/video5.mp4.mp4" class="fade-in"></video>
+
+<video controls src="media/video1.mp4.mp4" class="fade-in"></video> <video controls src="media/video2.mp4.mp4" class="fade-in"></video> <video controls src="media/video3.mp4.mp4" class="fade-in"></video> <video controls src="media/video4.mp4.mp4" class="fade-in"></video> <video controls src="media/video5.mp4.mp4" class="fade-in"></video>
 
 <h2>Love Notes</h2>
 
 <div id="messageList"></div>
 
 <textarea id="newMessage" placeholder="Write something from your heart..."></textarea>
+
 <br>
+
 <button onclick="addMessage()">Send</button>
 
 <div class="secret-heart" onclick="secretMessage()">♥</div>
 
-<p class="ending-line">In every lifetime, I’d still find you.</p>
+<p class="ending-line">
+    In every lifetime, I’d still find you.
+</p>
 
 <script src="script.js"></script>
+
 </body>
 </html>
-
