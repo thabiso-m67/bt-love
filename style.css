@@ -1186,3 +1186,694 @@ button:hover {
     }
 
 }
+
+.one-year-story {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    z-index: 99999 !important;
+    background: #050505 !important;
+    overflow: hidden !important;
+    opacity: 1 !important;
+    transition: opacity 2.5s ease !important;
+}
+
+.one-year-story #anniversaryStoryContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.anniversary-scene {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: scale(1.03);
+    transition:
+        opacity 1.4s ease,
+        transform 2s ease;
+    overflow: hidden;
+}
+
+.anniversary-scene.scene-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.anniversary-scene.scene-fade-out {
+    opacity: 0;
+    transform: scale(0.98);
+}
+
+.opening-scene {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(130, 20, 45, 0.22),
+            transparent 55%
+        ),
+        #050505;
+}
+
+.scene-date {
+    font-size: 14px;
+    letter-spacing: 7px;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 45px;
+}
+
+.opening-scene h1 {
+    font-size: clamp(32px, 6vw, 72px);
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin: 0 0 45px;
+    color: #fff;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.opening-scene p {
+    max-width: 650px;
+    font-size: clamp(17px, 2.2vw, 25px);
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.78);
+    margin: 8px auto;
+}
+
+.memory-scene {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(90, 10, 30, 0.22),
+            transparent 60%
+        ),
+        #050505;
+}
+
+.memory-number {
+    position: absolute;
+    top: 35px;
+    left: 40px;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.memory-photo-wrap {
+    width: min(330px, 62vw);
+    height: min(420px, 52vh);
+    margin-bottom: 28px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(255, 255, 255, 0.08);
+    transform: translateY(25px);
+    opacity: 0;
+    animation: memoryPhotoIn 1.8s ease forwards;
+    animation-delay: 0.5s;
+}
+
+.anniversary-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.memory-content {
+    max-width: 700px;
+    padding: 0 25px;
+    transform: translateY(25px);
+    opacity: 0;
+    animation: memoryTextIn 1.5s ease forwards;
+    animation-delay: 1s;
+}
+
+.memory-content span,
+.portrait-content span,
+.little-things-content span,
+.us-content span {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: rgba(255, 210, 210, 0.7);
+}
+
+.memory-content h2,
+.portrait-content h2,
+.us-content h2 {
+    font-size: clamp(27px, 4vw, 48px);
+    font-weight: 400;
+    margin: 12px 0 20px;
+    color: #fff;
+}
+
+.memory-content p,
+.portrait-content p,
+.us-content p {
+    max-width: 650px;
+    margin: 9px auto;
+    font-size: clamp(15px, 1.8vw, 20px);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.special-line {
+    color: #fff !important;
+    font-size: clamp(17px, 2vw, 23px) !important;
+    margin-top: 18px !important;
+}
+
+@keyframes memoryPhotoIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes memoryTextIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.floating-hearts {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    color: rgba(255, 120, 150, 0.4);
+    font-size: 25px;
+    animation: heartsFloat 5s ease-in-out infinite;
+    letter-spacing: 70px;
+    padding-top: 15%;
+}
+
+@keyframes heartsFloat {
+    0% {
+        transform: translateY(20px);
+        opacity: 0.2;
+    }
+
+    50% {
+        transform: translateY(-20px);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(20px);
+        opacity: 0.2;
+    }
+}
+
+.portrait-scene {
+    background:
+        radial-gradient(
+            circle at 75% 50%,
+            rgba(100, 15, 40, 0.25),
+            transparent 45%
+        ),
+        #050505;
+    gap: 6vw;
+    padding: 40px 8vw;
+}
+
+.portrait-content {
+    width: min(500px, 42vw);
+}
+
+.portrait-content h2 {
+    font-size: clamp(40px, 6vw, 80px);
+}
+
+.portrait-photo {
+    width: min(360px, 40vw);
+    height: min(520px, 70vh);
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+    animation: portraitZoom 8s ease forwards;
+}
+
+@keyframes portraitZoom {
+    from {
+        transform: scale(0.96);
+    }
+
+    to {
+        transform: scale(1.03);
+    }
+}
+
+.little-things-scene {
+    gap: 6vw;
+    padding: 40px 8vw;
+    background:
+        linear-gradient(
+            135deg,
+            #070707,
+            #16090d,
+            #050505
+        );
+}
+
+.little-things-photo {
+    width: min(370px, 40vw);
+    height: min(500px, 65vh);
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+}
+
+.little-things-content {
+    max-width: 520px;
+}
+
+.little-things-content h2 {
+    color: #fff;
+    font-size: clamp(27px, 4vw, 46px);
+    font-weight: 400;
+    margin: 15px 0 25px;
+}
+
+.little-lines p {
+    opacity: 0;
+    animation: lineAppear 0.8s ease forwards;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 10px 0;
+}
+
+.little-lines p:nth-child(1) {
+    animation-delay: 1s;
+}
+
+.little-lines p:nth-child(2) {
+    animation-delay: 1.8s;
+}
+
+.little-lines p:nth-child(3) {
+    animation-delay: 2.6s;
+}
+
+.little-lines p:nth-child(4) {
+    animation-delay: 3.4s;
+}
+
+.little-lines p:nth-child(5) {
+    animation-delay: 4.2s;
+}
+
+@keyframes lineAppear {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.us-scene {
+    flex-direction: column;
+    text-align: center;
+    background: #030303;
+}
+
+.us-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.us-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.9)
+        );
+}
+
+.us-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: usPhotoZoom 10s ease forwards;
+}
+
+@keyframes usPhotoZoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+.us-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+    margin-top: 25vh;
+}
+
+.us-content h2 {
+    font-size: clamp(35px, 5vw, 65px);
+}
+
+.us-content h3 {
+    font-size: clamp(25px, 3.5vw, 42px);
+    font-weight: 400;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.emotional-scene {
+    text-align: center;
+    padding: 30px;
+    background:
+        radial-gradient(
+            circle,
+            rgba(90, 10, 30, 0.18),
+            transparent 60%
+        ),
+        #020202;
+}
+
+.emotional-text {
+    max-width: 750px;
+}
+
+.emotional-text p {
+    font-size: clamp(21px, 3vw, 34px);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.82);
+    opacity: 0;
+    animation: emotionalReveal 1.8s ease forwards;
+}
+
+.emotional-text p:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.emotional-text p:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.emotional-text p:nth-child(3) {
+    animation-delay: 4s;
+}
+
+.small-emotional {
+    font-size: 15px !important;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.princess-line {
+    font-size: clamp(35px, 5vw, 65px) !important;
+    color: #fff !important;
+}
+
+@keyframes emotionalReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.final-photo-scene {
+    background: #000;
+}
+
+.final-anniversary-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: finalPhotoZoom 10s ease forwards;
+}
+
+.final-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.25)
+        );
+}
+
+.final-photo-text {
+    position: absolute;
+    bottom: 12%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 2;
+    padding: 20px;
+}
+
+.final-photo-text p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 19px;
+}
+
+.final-photo-text h2 {
+    color: #fff;
+    font-size: clamp(38px, 6vw, 72px);
+    font-weight: 400;
+}
+
+@keyframes finalPhotoZoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+.ending-scene {
+    text-align: center;
+    padding: 30px;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(120, 15, 40, 0.2),
+            transparent 55%
+        ),
+        #030303;
+}
+
+.ending-content {
+    max-width: 700px;
+}
+
+.ending-content p {
+    font-size: clamp(16px, 2vw, 23px);
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 5px 0;
+}
+
+.ending-number {
+    font-size: 13px !important;
+    letter-spacing: 6px;
+    color: rgba(255, 255, 255, 0.45) !important;
+    margin-bottom: 15px !important;
+}
+
+.ending-divider {
+    width: 70px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 35px auto;
+}
+
+.ending-content h1 {
+    font-size: clamp(45px, 7vw, 90px);
+    font-weight: 400;
+    margin: 0 0 30px;
+    color: #fff;
+    letter-spacing: 4px;
+}
+
+.ending-content h2 {
+    font-size: clamp(25px, 4vw, 45px);
+    font-weight: 400;
+    margin-top: 35px;
+    color: #fff;
+}
+
+.bt-final {
+    margin-top: 55px;
+    font-size: 18px;
+    letter-spacing: 5px;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.anniversary-finished {
+    opacity: 0 !important;
+}
+
+
+@media (max-width: 700px) {
+
+    .scene-date {
+        letter-spacing: 4px;
+        margin-bottom: 30px;
+    }
+
+    .opening-scene h1 {
+        line-height: 1.2;
+        margin-bottom: 30px;
+    }
+
+    .memory-scene {
+        padding: 35px 15px;
+    }
+
+    .memory-photo-wrap {
+        width: min(280px, 75vw);
+        height: min(350px, 42vh);
+    }
+
+    .memory-content {
+        padding: 0 12px;
+    }
+
+    .memory-content p {
+        line-height: 1.5;
+    }
+
+    .portrait-scene {
+        flex-direction: column;
+        gap: 25px;
+        padding: 30px 20px;
+        justify-content: center;
+    }
+
+    .portrait-content {
+        width: 90%;
+        text-align: center;
+        order: 1;
+    }
+
+    .portrait-photo {
+        width: min(270px, 65vw);
+        height: min(330px, 40vh);
+        order: 2;
+    }
+
+    .portrait-content h2 {
+        margin: 8px 0 15px;
+    }
+
+    .portrait-content p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .little-things-scene {
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px 20px;
+    }
+
+    .little-things-photo {
+        width: min(250px, 60vw);
+        height: min(280px, 32vh);
+    }
+
+    .little-things-content {
+        text-align: center;
+    }
+
+    .little-things-content h2 {
+        margin: 8px 0 15px;
+    }
+
+    .little-lines p {
+        font-size: 15px;
+        margin: 5px 0;
+    }
+
+    .us-content {
+        margin-top: 30vh;
+        padding: 0 20px;
+    }
+
+    .us-content p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .emotional-text {
+        padding: 0 15px;
+    }
+
+    .emotional-text p {
+        line-height: 1.5;
+    }
+
+    .final-photo-text {
+        bottom: 10%;
+    }
+
+    .ending-content {
+        padding: 0 20px;
+    }
+
+    .ending-content p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .ending-divider {
+        margin: 25px auto;
+    }
+
+    .ending-content h2 {
+        line-height: 1.3;
+    }
+}
