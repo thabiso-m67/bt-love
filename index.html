@@ -1,47 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B & T Test</title>
-    <style>
-        body {
-            background: black;
-            color: white;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            padding-top: 100px;
-        }
-
-        .envelope {
-            display: inline-block;
-            padding: 50px;
-            border: 3px solid gold;
-            cursor: pointer;
-            font-size: 30px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>B & T</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="lockscreen">
 
-    <h1>For My Princess ❤️</h1>
-
-    <div class="envelope" onclick="openPrompt()">
-        B & T
+    <div id="intro">
+        <h1 class="intro-text">For My Princess.</h1>
+        <p class="intro-sub">Open when your heart is calm.</p>
     </div>
 
-    <script>
-        function openPrompt() {
-            const password = prompt("Enter the password:");
+    <div class="envelope-container">
+        <div class="envelope" onclick="openPrompt()">
+            <div class="heart">B & T</div>
+        </div>
+    </div>
 
-            if (password === "17-10-2025") {
-                window.location.href = "love.html";
-            } else if (password !== null) {
-                alert("Wrong password.");
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
