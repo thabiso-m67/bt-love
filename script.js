@@ -1,73 +1,23 @@
+const TEST_MODE = "one-year";
+
 console.log("B & T Love System Loaded");
 
 
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
+
+    setTimeout(function () {
+        const envelope = document.querySelector(".envelope-container");
+
+        if (envelope) {
+            envelope.classList.remove("hidden");
+        }
+    }, 4000);
 
     displayMessages();
-
     updateDaysCounter();
-
     checkAnniversary();
 
-    setupMusic();
-
 });
-
-
-function setupMusic() {
-
-    const music = document.getElementById("bgMusic");
-
-    if (!music) {
-        return;
-    }
-
-    document.addEventListener("click", function () {
-
-        if (music.paused) {
-
-            music.volume = 0;
-
-            music.play().then(function () {
-
-                fadeMusicIn(music);
-
-            }).catch(function () {});
-
-        }
-
-    }, { once: true });
-
-}
-
-
-function fadeMusicIn(music) {
-
-    if (!music) {
-        return;
-    }
-
-    let volume = 0;
-
-    music.volume = 0;
-
-    const fade = setInterval(function () {
-
-        volume += 0.02;
-
-        if (volume >= 0.6) {
-
-            volume = 0.6;
-
-            clearInterval(fade);
-
-        }
-
-        music.volume = volume;
-
-    }, 100);
-
-}
 
 
 function openPrompt() {
@@ -89,24 +39,16 @@ function openPrompt() {
 
 function addMessage() {
 
-    const input =
-        document.getElementById("newMessage");
+    const input = document.getElementById("newMessage");
 
-    if (!input) {
-        return;
-    }
+    if (!input) return;
 
-    const text =
-        input.value.trim();
+    const text = input.value.trim();
 
-    if (text === "") {
-        return;
-    }
+    if (text === "") return;
 
     let messages =
-        JSON.parse(
-            localStorage.getItem("loveMessages")
-        ) || [];
+        JSON.parse(localStorage.getItem("loveMessages")) || [];
 
     messages.push(text);
 
@@ -127,16 +69,12 @@ function displayMessages() {
     const list =
         document.getElementById("messageList");
 
-    if (!list) {
-        return;
-    }
+    if (!list) return;
 
     list.innerHTML = "";
 
     const messages =
-        JSON.parse(
-            localStorage.getItem("loveMessages")
-        ) || [];
+        JSON.parse(localStorage.getItem("loveMessages")) || [];
 
     messages.forEach(function (message) {
 
@@ -157,12 +95,10 @@ function updateDaysCounter() {
     const startDate =
         new Date("2025-10-17T00:00:00");
 
-    const today =
-        new Date();
+    const today = new Date();
 
     const difference =
-        today.getTime() -
-        startDate.getTime();
+        today.getTime() - startDate.getTime();
 
     const days =
         Math.floor(
@@ -173,15 +109,7 @@ function updateDaysCounter() {
     const counter =
         document.getElementById("daysTogether");
 
-    if (!counter) {
-        return;
-    }
-
-    if (days < 0) {
-
-        counter.textContent = "0";
-
-    } else {
+    if (counter) {
 
         counter.textContent = days;
 
@@ -192,18 +120,34 @@ function updateDaysCounter() {
 
 function checkAnniversary() {
 
-    const screen =
-        document.getElementById(
-            "celebrationScreen"
-        );
+    let today;
 
-    if (!screen) {
-        return;
+    if (TEST_MODE === "one-year") {
+
+        today =
+            new Date("2026-10-17T12:00:00");
+
+    } else if (TEST_MODE === "six-month") {
+
+        today =
+            new Date("2026-04-17T12:00:00");
+
+    } else if (TEST_MODE === "birthday") {
+
+        today =
+            new Date("2026-05-16T12:00:00");
+
+    } else if (TEST_MODE === "monthly") {
+
+        today =
+            new Date("2026-09-17T12:00:00");
+
+    } else {
+
+        today = new Date();
+
     }
 
-
-    const today =
-        new Date();
 
     const day =
         today.getDate();
@@ -215,14 +159,12 @@ function checkAnniversary() {
         today.getFullYear();
 
 
-    /*
-        Birthday
-        16 May
-    */
-
     if (
-        day === 16 &&
-        month === 5
+        TEST_MODE === "birthday" ||
+        (
+            day === 16 &&
+            month === 5
+        )
     ) {
 
         startBirthdayStory();
@@ -232,269 +174,112 @@ function checkAnniversary() {
     }
 
 
-    /*
-        One Year Anniversary
-        17 October 2026
-    */
+    const screen =
+        document.getElementById(
+            "celebrationScreen"
+        );
+
+    const title =
+        document.getElementById(
+            "celebrationTitle"
+        );
+
+    const message =
+        document.getElementById(
+            "celebrationMessage"
+        );
+
 
     if (
-        day === 17 &&
-        month === 10 &&
-        year === 2026
+        !screen ||
+        !title ||
+        !message
     ) {
-
-        runOneYearAnniversary(
-            screen
-        );
 
         return;
 
     }
 
-
-    /*
-        Six Month Anniversary
-        17 April 2026
-    */
-
-    if (
-        day === 17 &&
-        month === 4 &&
-        year === 2026
-    ) {
-
-        runCinematicSequence(
-            screen
-        );
-
-        return;
-
-    }
-
-
-    /*
-        Normal Monthly Anniversary
-    */
-
-    if (day === 17) {
-
-        runMonthlyAnniversary(
-            screen
-        );
-
-    }
-
-}
-
-
-function runMonthlyAnniversary(screen) {
-
-    const today =
-        new Date();
 
     const start =
         new Date(
             "2025-10-17T00:00:00"
         );
 
-    let months =
+
+    const monthsPassed =
         (
             today.getFullYear() -
             start.getFullYear()
-        ) * 12;
-
-    months +=
-        today.getMonth() -
-        start.getMonth();
-
-
-    if (today.getDate() < 17) {
-        months--;
-    }
+        ) * 12 +
+        (
+            today.getMonth() -
+            start.getMonth()
+        );
 
 
-    if (months < 1) {
+    if (
+        TEST_MODE === "one-year" ||
+        (
+            day === 17 &&
+            month === 10 &&
+            year === 2026
+        )
+    ) {
+
+        runOneYearAnniversary(screen);
+
         return;
+
     }
 
 
-    screen.classList.remove(
-        "hidden"
-    );
+    if (
+        TEST_MODE === "six-month" ||
+        (
+            day === 17 &&
+            monthsPassed === 6
+        )
+    ) {
 
-    screen.classList.add(
-        "cinematic-overlay"
-    );
-
-
-    screen.innerHTML = `
-
-        <div class="celebration-content">
-
-            <div class="secret-heart-big">
-                ❤️
-            </div>
-
-            <h1>
-                ${months} Month${months === 1 ? "" : "s"}
-                Together
-            </h1>
-
-            <p>
-                Another beautiful chapter of us.
-            </p>
-
-            <p>
-                ${months} month${months === 1 ? "" : "s"}
-                of memories, laughter and love.
-            </p>
-
-            <p>
-                And I would still choose you. ❤️
-            </p>
-
-        </div>
-
-    `;
-
-
-    launchConfetti();
-
-
-    setTimeout(function () {
-
-        closeCelebration(
-            screen
+        runCinematicSequence(
+            screen,
+            title,
+            message
         );
 
-    }, 15000);
-
-}
-
-
-function runSixMonthTest() {
-
-    const screen =
-        document.getElementById(
-            "celebrationScreen"
-        );
-
-    if (!screen) {
         return;
-    }
-
-    runCinematicSequence(
-        screen
-    );
-
-}
-
-
-function runCinematicSequence(screen) {
-
-    const music =
-        document.getElementById(
-            "bgMusic"
-        );
-
-
-    screen.classList.remove(
-        "hidden"
-    );
-
-    screen.classList.add(
-        "cinematic-overlay"
-    );
-
-
-    screen.innerHTML = `
-
-        <div id="memoryContainer"></div>
-
-        <div class="celebration-content">
-
-            <h1 class="cinematic-title">
-                Six Months With You ❤️
-            </h1>
-
-            <p
-                id="celebrationMessage"
-                class="cinematic-message"
-            ></p>
-
-        </div>
-
-    `;
-
-
-    if (music) {
-
-        music.volume = 0;
-
-        music.play().then(function () {
-
-            fadeMusicIn(music);
-
-        }).catch(function () {});
 
     }
 
 
-    setTimeout(function () {
+    if (
+        TEST_MODE === "monthly" ||
+        day === 17
+    ) {
 
-        typeWriterEffect(
-            "Six months ago, I didn't know life could feel any better, but each day gets better with you. You didn't just become part of my days... you became my joy every day.",
-            "celebrationMessage"
+        screen.classList.remove(
+            "hidden"
         );
 
-    }, 2000);
+        title.textContent =
+            "❤️ Monthly Anniversary ❤️";
+
+        message.textContent =
+            "Another month of us. I’d still choose you every time.";
+
+        launchConfetti();
 
 
-    setTimeout(function () {
+        setTimeout(function () {
 
-        showCinematicPhotos(
-            document.getElementById(
-                "memoryContainer"
-            )
-        );
-
-    }, 9000);
-
-
-    setTimeout(function () {
-
-        const message =
-            document.getElementById(
-                "celebrationMessage"
+            screen.classList.add(
+                "hidden"
             );
 
-        if (message) {
+        }, 15000);
 
-            message.innerHTML =
-                "And I still choose you. Every single time. ❤️";
-
-        }
-
-    }, 24000);
-
-
-    setTimeout(function () {
-
-        screen.style.opacity =
-            "0";
-
-    }, 29000);
-
-
-    setTimeout(function () {
-
-        closeCelebration(
-            screen
-        );
-
-        showHiddenMessage();
-
-    }, 32000);
+    }
 
 }
 
@@ -518,109 +303,58 @@ function runOneYearAnniversary(screen) {
 
     screen.innerHTML = `
 
-        <div class="one-year-container">
+        <div class="one-year-opening">
 
-            <div class="one-year-opening">
+            <p>17 • 10 • 2026</p>
 
-                <p class="anniversary-small">
-                    17 • 10 • 2026
-                </p>
+            <h1>ONE YEAR</h1>
 
-                <h1>
-                    ONE YEAR
-                </h1>
+            <p>
+                One beautiful year with you.
+            </p>
 
-                <p class="anniversary-subtitle">
-                    One beautiful year with you.
-                </p>
-
-            </div>
+        </div>
 
 
-            <div class="anniversary-stats">
+        <div class="anniversary-stats">
 
-                <div class="stat">
+            <p>365 DAYS</p>
 
-                    <span class="stat-number">
-                        365
-                    </span>
+            <p>8,760 HOURS</p>
 
-                    <span class="stat-label">
-                        DAYS
-                    </span>
+            <p>525,600 MINUTES</p>
 
-                </div>
+            <p>31,536,000 SECONDS</p>
+
+        </div>
 
 
-                <div class="stat">
+        <div class="one-year-message">
 
-                    <span class="stat-number">
-                        8,760
-                    </span>
+            <p>
+                And somehow...
+            </p>
 
-                    <span class="stat-label">
-                        HOURS
-                    </span>
+            <h2>
+                I’d still choose you.
+            </h2>
 
-                </div>
-
-
-                <div class="stat">
-
-                    <span class="stat-number">
-                        525,600
-                    </span>
-
-                    <span class="stat-label">
-                        MINUTES
-                    </span>
-
-                </div>
+        </div>
 
 
-                <div class="stat">
+        <div class="one-year-final">
 
-                    <span class="stat-number">
-                        31,536,000
-                    </span>
+            <p>
+                One year down.
+            </p>
 
-                    <span class="stat-label">
-                        SECONDS
-                    </span>
+            <p>
+                And I hope this is only the beginning.
+            </p>
 
-                </div>
-
-            </div>
-
-
-            <div class="one-year-message">
-
-                <p>
-                    And somehow...
-                </p>
-
-                <h2>
-                    I’d still choose you.
-                </h2>
-
-            </div>
-
-
-            <div class="one-year-final">
-
-                <p>
-                    One year down.
-                </p>
-
-                <p>
-                    And I hope this is only the beginning.
-                </p>
-
-                <span>
-                    ❤️
-                </span>
-
-            </div>
+            <span>
+                ❤️
+            </span>
 
         </div>
 
@@ -629,13 +363,55 @@ function runOneYearAnniversary(screen) {
 
     if (music) {
 
+        music.loop = true;
+
         music.volume = 0;
 
-        music.play().then(function () {
+        const playMusic =
+            music.play();
 
-            fadeMusicIn(music);
+        if (
+            playMusic !== undefined
+        ) {
 
-        }).catch(function () {});
+            playMusic
+                .then(function () {
+
+                    let volume = 0;
+
+                    const fade =
+                        setInterval(function () {
+
+                            if (
+                                volume < 0.6
+                            ) {
+
+                                volume += 0.02;
+
+                                music.volume =
+                                    volume;
+
+                            } else {
+
+                                clearInterval(
+                                    fade
+                                );
+
+                            }
+
+                        }, 150);
+
+                })
+                .catch(function (error) {
+
+                    console.log(
+                        "Music could not start:",
+                        error
+                    );
+
+                });
+
+        }
 
     }
 
@@ -655,7 +431,7 @@ function runOneYearAnniversary(screen) {
 
         }
 
-    }, 500);
+    }, 800);
 
 
     setTimeout(function () {
@@ -714,40 +490,221 @@ function runOneYearAnniversary(screen) {
 
     setTimeout(function () {
 
-        screen.style.opacity =
-            "0";
-
-    }, 22500);
+        screen.style.opacity = "0";
 
 
-    setTimeout(function () {
+        setTimeout(function () {
 
-        closeCelebration(
-            screen
-        );
+            screen.classList.add(
+                "hidden"
+            );
 
-    }, 25000);
+            screen.classList.remove(
+                "one-year-overlay"
+            );
+
+            screen.style.opacity = "1";
+
+
+            screen.innerHTML = `
+
+                <div id="memoryContainer"></div>
+
+                <h1 id="celebrationTitle"></h1>
+
+                <p id="celebrationMessage"></p>
+
+            `;
+
+        }, 2500);
+
+    }, 24000);
 
 }
 
 
-function showCinematicPhotos(container) {
+function runCinematicSequence(
+    screen,
+    title,
+    message
+) {
 
-    if (!container) {
-        return;
-    }
+    const music =
+        document.getElementById(
+            "bgMusic"
+        );
+
+    const container =
+        document.getElementById(
+            "memoryContainer"
+        );
+
+
+    if (!container) return;
+
+
+    container.innerHTML = "";
+
+
+    screen.classList.remove(
+        "hidden"
+    );
+
+    screen.classList.add(
+        "cinematic-overlay"
+    );
+
+
+    title.textContent =
+        "Six Months With You";
+
+
+    title.classList.add(
+        "cinematic-title"
+    );
+
+
+    message.innerHTML = "";
+
+    message.classList.add(
+        "cinematic-message"
+    );
+
+
+    setTimeout(function () {
+
+        if (music) {
+
+            music.loop = true;
+
+            music.volume = 0;
+
+            const playMusic =
+                music.play();
+
+            if (
+                playMusic !== undefined
+            ) {
+
+                playMusic
+                    .then(function () {
+
+                        let volume = 0;
+
+                        const fade =
+                            setInterval(function () {
+
+                                if (
+                                    volume < 0.6
+                                ) {
+
+                                    volume += 0.02;
+
+                                    music.volume =
+                                        volume;
+
+                                } else {
+
+                                    clearInterval(
+                                        fade
+                                    );
+
+                                }
+
+                            }, 200);
+
+                    })
+                    .catch(function (error) {
+
+                        console.log(
+                            "Music could not start:",
+                            error
+                        );
+
+                    });
+
+            }
+
+        }
+
+
+        typeWriterEffect(
+
+            "Six months ago, I didn’t know life could feel any better, but each day it gets better with you. You didn’t just become part of my days… you became my joy everyday.",
+
+            "celebrationMessage"
+
+        );
+
+    }, 3000);
+
+
+    setTimeout(function () {
+
+        showCinematicPhotos(
+            container
+        );
+
+    }, 12000);
+
+
+    setTimeout(function () {
+
+        message.innerHTML =
+            "And I still choose you. Every single time.";
+
+    }, 28000);
+
+
+    setTimeout(function () {
+
+        screen.style.opacity =
+            "0";
+
+    }, 32000);
+
+
+    setTimeout(function () {
+
+        screen.classList.add(
+            "hidden"
+        );
+
+        screen.classList.remove(
+            "cinematic-overlay"
+        );
+
+        screen.style.opacity =
+            "1";
+
+        container.innerHTML =
+            "";
+
+        showHiddenMessage();
+
+    }, 36000);
+
+}
+
+
+function showCinematicPhotos(
+    container
+) {
+
+    if (!container) return;
 
 
     const images = [
 
         "media/image1.jpg.jpeg",
+
         "media/image2.jpg.jpeg",
+
         "media/image3.jpg.jpeg",
+
         "media/image4.jpg.jpeg",
-        "media/image5.jpg.jpeg",
-        "media/image6.jpg.jpeg",
-        "media/image7.jpg.jpeg",
-        "media/image8.jpg.jpeg"
+
+        "media/image5.jpg.jpeg"
 
     ];
 
@@ -759,8 +716,7 @@ function showCinematicPhotos(container) {
         setInterval(function () {
 
             if (
-                index >=
-                images.length
+                index >= images.length
             ) {
 
                 clearInterval(
@@ -789,15 +745,15 @@ function showCinematicPhotos(container) {
 
             image.style.left =
                 (
-                    10 +
-                    Math.random() * 70
+                    20 +
+                    Math.random() * 60
                 ) + "%";
 
 
             image.style.top =
                 (
-                    15 +
-                    Math.random() * 60
+                    20 +
+                    Math.random() * 50
                 ) + "%";
 
 
@@ -810,12 +766,12 @@ function showCinematicPhotos(container) {
 
                 image.remove();
 
-            }, 8000);
+            }, 9000);
 
 
             index++;
 
-        }, 2200);
+        }, 3000);
 
 }
 
@@ -828,32 +784,25 @@ function showHiddenMessage() {
         );
 
 
-    if (!screen) {
-        return;
-    }
+    if (!screen) return;
 
 
     screen.classList.remove(
         "hidden"
     );
 
+
     screen.classList.add(
         "cinematic-overlay"
     );
-
-    screen.style.opacity = "1";
 
 
     screen.innerHTML = `
 
         <div class="hidden-message">
 
-            <div class="secret-heart-big">
-                ❤️
-            </div>
-
             <h1>
-                I didn't say everything...
+                I didn’t say everything…
             </h1>
 
             <p>
@@ -861,20 +810,13 @@ function showHiddenMessage() {
             </p>
 
             <p>
-                You have been a shining light
-                in my life.
-                You make my days calmer
-                and my life happier.
+                You have been a shining light in my life and you make
+                my days calmer and my life happier. Doing life with you
+                is amazing and I wouldn't want it any other way.
             </p>
 
             <p>
-                Doing life with you is amazing
-                and I wouldn't want it any other way.
-            </p>
-
-            <p>
-                Oh and WAZZZZZZZUUUPPP
-                my love :)
+                Oh and WAZZZZZZZUUUPPP my love :)
             </p>
 
         </div>
@@ -884,8 +826,12 @@ function showHiddenMessage() {
 
     setTimeout(function () {
 
-        closeCelebration(
-            screen
+        screen.classList.add(
+            "hidden"
+        );
+
+        screen.classList.remove(
+            "cinematic-overlay"
         );
 
     }, 12000);
@@ -904,24 +850,23 @@ function typeWriterEffect(
         );
 
 
-    if (!element) {
-        return;
-    }
+    if (!element) return;
 
 
     let index = 0;
 
-    element.innerHTML = "";
+
+    element.innerHTML =
+        "";
 
 
-    const speed = 45;
+    const speed = 65;
 
 
     function type() {
 
         if (
-            index <
-            text.length
+            index < text.length
         ) {
 
             element.innerHTML +=
@@ -948,7 +893,7 @@ function launchConfetti() {
 
     for (
         let i = 0;
-        i < 70;
+        i < 50;
         i++
     ) {
 
@@ -964,7 +909,8 @@ function launchConfetti() {
 
 
         confetti.style.left =
-            Math.random() * 100 +
+            Math.random() *
+            100 +
             "vw";
 
 
@@ -972,7 +918,8 @@ function launchConfetti() {
             (
                 2 +
                 Math.random() * 3
-            ) + "s";
+            ) +
+            "s";
 
 
         document.body.appendChild(
@@ -1031,13 +978,10 @@ function startBirthdayStory() {
         player.src =
             "media/birthday.mp3";
 
-        player.volume = 0;
+        player.loop = true;
 
-        player.play().then(function () {
-
-            fadeMusicIn(player);
-
-        }).catch(function () {});
+        player.play()
+            .catch(function () {});
 
     }
 
@@ -1069,7 +1013,7 @@ function startBirthdayStory() {
 
             setTimeout(
                 nextSection,
-                9000
+                11000
             );
 
         } else {
@@ -1087,8 +1031,26 @@ function startBirthdayStory() {
                     );
 
 
-                if (!screen) {
+                const title =
+                    document.getElementById(
+                        "celebrationTitle"
+                    );
+
+
+                const message =
+                    document.getElementById(
+                        "celebrationMessage"
+                    );
+
+
+                if (
+                    !screen ||
+                    !title ||
+                    !message
+                ) {
+
                     return;
+
                 }
 
 
@@ -1097,26 +1059,12 @@ function startBirthdayStory() {
                 );
 
 
-                screen.innerHTML = `
+                title.textContent =
+                    "🎂 Happy Birthday My Love 🎂";
 
-                    <div
-                        id="memoryContainer"
-                    ></div>
 
-                    <div class="celebration-content">
-
-                        <h1>
-                            🎂 Happy Birthday My Love 🎂
-                        </h1>
-
-                        <p>
-                            Thank you for existing.
-                            Thank you for being you.
-                        </p>
-
-                    </div>
-
-                `;
+                message.textContent =
+                    "Thank you for existing. Thank you for being you.";
 
 
                 launchConfetti();
@@ -1131,14 +1079,14 @@ function startBirthdayStory() {
 
                 setTimeout(function () {
 
-                    closeCelebration(
-                        screen
+                    screen.classList.add(
+                        "hidden"
                     );
 
                 }, 15000);
 
 
-            }, 5000);
+            }, 8000);
 
         }
 
@@ -1147,7 +1095,7 @@ function startBirthdayStory() {
 
     setTimeout(
         nextSection,
-        9000
+        11000
     );
 
 }
@@ -1176,12 +1124,16 @@ function playVoiceNote() {
         const fadeOut =
             setInterval(function () {
 
-                volume -= 0.05;
+                if (
+                    volume > 0.05
+                ) {
 
+                    volume -= 0.05;
 
-                if (volume <= 0) {
+                    music.volume =
+                        volume;
 
-                    volume = 0;
+                } else {
 
                     music.pause();
 
@@ -1190,11 +1142,6 @@ function playVoiceNote() {
                     );
 
                 }
-
-
-                music.volume =
-                    volume;
-
 
             }, 80);
 
@@ -1205,27 +1152,51 @@ function playVoiceNote() {
 
         voice.volume = 1;
 
-        voice.play().catch(
-            function () {}
-        );
+        voice.play()
+            .catch(function () {});
 
-    }, 500);
-
-
-    voice.onended = function () {
-
-        if (!music) {
-            return;
-        }
+    }, 800);
 
 
-        music.play().then(function () {
+    voice.onended =
+        function () {
 
-            fadeMusicIn(music);
+            if (!music) return;
 
-        }).catch(function () {});
 
-    };
+            music.play()
+                .catch(function () {});
+
+
+            let volume = 0;
+
+
+            music.volume = 0;
+
+
+            const fadeIn =
+                setInterval(function () {
+
+                    if (
+                        volume < 0.6
+                    ) {
+
+                        volume += 0.05;
+
+                        music.volume =
+                            volume;
+
+                    } else {
+
+                        clearInterval(
+                            fadeIn
+                        );
+
+                    }
+
+                }, 80);
+
+        };
 
 }
 
@@ -1238,9 +1209,7 @@ function secretMessage() {
         );
 
 
-    if (!screen) {
-        return;
-    }
+    if (!screen) return;
 
 
     screen.classList.remove(
@@ -1266,9 +1235,8 @@ function secretMessage() {
             </h1>
 
             <p>
-                If you clicked this little heart,
-                then you were curious enough to find
-                one of the little secrets I left for you.
+                If you clicked this little heart, then you were curious
+                enough to find one of the little secrets I left for you.
             </p>
 
             <p>
@@ -1290,59 +1258,25 @@ function secretMessage() {
 
     setTimeout(function () {
 
-        closeCelebration(
-            screen
-        );
-
-    }, 10000);
-
-}
-
-
-function closeCelebration(screen) {
-
-    if (!screen) {
-        return;
-    }
-
-
-    screen.style.opacity = "0";
-
-
-    setTimeout(function () {
-
         screen.classList.add(
             "hidden"
         );
-
 
         screen.classList.remove(
             "cinematic-overlay"
         );
 
 
-        screen.classList.remove(
-            "one-year-overlay"
-        );
-
-
-        screen.style.opacity = "1";
-
-
         screen.innerHTML = `
 
             <div id="memoryContainer"></div>
 
-            <div class="celebration-content">
+            <h1 id="celebrationTitle"></h1>
 
-                <h1 id="celebrationTitle"></h1>
-
-                <p id="celebrationMessage"></p>
-
-            </div>
+            <p id="celebrationMessage"></p>
 
         `;
 
-    }, 1000);
+    }, 10000);
 
 }
