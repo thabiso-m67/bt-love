@@ -942,3 +942,19 @@ button:hover {
     margin-bottom: 25px;
     animation: pulse 2s infinite;
 }
+
+.envelope-container {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.envelope {
+    cursor: pointer;
+    position: relative;
+    z-index: 101;
+}
