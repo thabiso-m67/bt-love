@@ -285,7 +285,6 @@ function runOneYearAnniversary(screen) {
             duration: 6500,
             html: `
                 <div class="anniversary-scene opening-scene">
-
                     <div class="scene-date">
                         17 • 10 • 2025
                     </div>
@@ -302,7 +301,6 @@ function runOneYearAnniversary(screen) {
                         but that day was going to become
                         one of the most important days of my life.
                     </p>
-
                 </div>
             `
         },
@@ -319,12 +317,10 @@ function runOneYearAnniversary(screen) {
                     </div>
 
                     <div class="memory-photo-wrap">
-
                         <img
                             src="media/image4.jpg.jpeg"
                             class="anniversary-photo"
                         >
-
                     </div>
 
                     <div class="memory-content">
@@ -359,65 +355,63 @@ function runOneYearAnniversary(screen) {
         },
 
         {
-            type: "video",
-            duration: 11000,
-            html: `
-                <div class="anniversary-scene memory-scene">
+    type: "video",
+    duration: 11000,
+    html: `
+        <div class="anniversary-scene memory-scene">
 
-                    <div class="memory-number">
-                        02
-                    </div>
+            <div class="memory-number">
+                02
+            </div>
 
-                    <div class="memory-photo-wrap laugh-video-wrap">
+            <div class="memory-photo-wrap laugh-video-wrap">
 
-                        <video
-                            class="anniversary-video"
-                            autoplay
-                            muted
-                            playsinline
-                            preload="auto"
-                        >
+                <video
+                    class="anniversary-video"
+                    autoplay
+                    muted
+                    playsinline
+                    preload="auto"
+                >
+                    <source
+                        src="media/video1.mp4.mp4"
+                        type="video/mp4"
+                    >
+                </video>
 
-                            <source
-                                src="media/video1.mp4.mp4"
-                                type="video/mp4"
-                            >
+            </div>
 
-                        </video>
+            <div class="memory-content">
 
-                    </div>
+                <span>
+                    THE LAUGHS
+                </span>
 
-                    <div class="memory-content">
+                <h2>
+                    Then came the laughs.
+                </h2>
 
-                        <span>
-                            THE LAUGHS
-                        </span>
+                <p>
+                    Somewhere along the way,
+                    you became one of my favourite
+                    people to laugh with.
+                </p>
 
-                        <h2>
-                            Then came the laughs.
-                        </h2>
+                <p>
+                    And honestly...
+                </p>
 
-                        <p>
-                            Somewhere along the way,
-                            you became one of my favourite
-                            people to laugh with.
-                        </p>
+                <p class="special-line">
+                    Some of my favourite memories
+                    with you are the completely
+                    ridiculous ones. 😂❤️
+                </p>
 
-                        <p>
-                            And honestly...
-                        </p>
+            </div>
 
-                        <p class="special-line">
-                            Some of my favourite memories
-                            with you are the completely
-                            ridiculous ones. 😂❤️
-                        </p>
-
-                    </div>
-
-                </div>
-            `
-        },
+        </div>
+    `
+},
 
         {
             type: "photo",
@@ -431,12 +425,10 @@ function runOneYearAnniversary(screen) {
                     </div>
 
                     <div class="memory-photo-wrap">
-
                         <img
                             src="media/image3.jpg.jpeg"
                             class="anniversary-photo"
                         >
-
                     </div>
 
                     <div class="memory-content">
@@ -486,12 +478,10 @@ function runOneYearAnniversary(screen) {
                     </div>
 
                     <div class="memory-photo-wrap">
-
                         <img
                             src="media/image10.jpg.jpeg"
                             class="anniversary-photo"
                         >
-
                     </div>
 
                     <div class="memory-content">
@@ -595,7 +585,7 @@ function runOneYearAnniversary(screen) {
         {
             type: "photo",
             duration: 7500,
-            image: "media/image30.jpg.jpeg",
+            image: "media/image26.jpg.jpeg",
             html: `
                 <div class="anniversary-scene portrait-scene">
 
@@ -924,62 +914,6 @@ function runOneYearAnniversary(screen) {
         },
 
         {
-            type: "things-i-love",
-            duration: 11500,
-            html: `
-                <div class="anniversary-scene things-love-scene">
-
-                    <div class="things-love-content">
-
-                        <span>
-                            THE THINGS I LOVE ABOUT YOU
-                        </span>
-
-                        <h2>
-                            It's more than just one thing.
-                        </h2>
-
-                        <div class="love-thoughts">
-
-                            <p>
-                                Your smile.
-                            </p>
-
-                            <p>
-                                Your laugh.
-                            </p>
-
-                            <p>
-                                The way you look at me.
-                            </p>
-
-                            <p>
-                                The little things you do
-                                without even realising.
-                            </p>
-
-                            <p>
-                                The way you can make
-                                an ordinary day feel special.
-                            </p>
-
-                            <p class="love-final-line">
-                                And most of all...
-                            </p>
-
-                            <p class="love-you-line">
-                                You. ❤️
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            `
-        },
-
-        {
             type: "emotional",
             duration: 8500,
             html: `
@@ -1040,96 +974,6 @@ function runOneYearAnniversary(screen) {
         },
 
         {
-            type: "love-letter",
-            duration: 15000,
-            html: `
-                <div class="anniversary-scene love-letter-scene">
-
-                    <div class="love-letter-card">
-
-                        <div class="letter-top">
-                            FOR MY PRINCESS ❤️
-                        </div>
-
-                        <div class="letter-content">
-
-                            <p class="letter-greeting">
-                                My Princess,
-                            </p>
-
-                            <p>
-                                If someone had told me on
-                                17 October 2025 that one year later
-                                I would have this many memories
-                                with you, I probably wouldn't
-                                have believed them.
-                            </p>
-
-                            <p>
-                                But somehow, here we are.
-                            </p>
-
-                            <p>
-                                We've laughed together,
-                                made memories together,
-                                gone on adventures,
-                                celebrated special days,
-                                and created so many little
-                                moments that I never want to forget.
-                            </p>
-
-                            <p>
-                                And through all of it,
-                                you became more than just
-                                my girlfriend.
-                            </p>
-
-                            <p class="letter-special">
-                                You became my favourite person.
-                            </p>
-
-                            <p>
-                                Thank you for being part of my life.
-                                Thank you for every laugh,
-                                every conversation,
-                                every hug,
-                                every memory and every moment
-                                we've shared.
-                            </p>
-
-                            <p>
-                                I don't know exactly what
-                                the future has waiting for us,
-                                but I know one thing...
-                            </p>
-
-                            <p class="letter-special">
-                                I want to keep making memories
-                                with you.
-                            </p>
-
-                            <p>
-                                One year down.
-                                So many more memories to make.
-                            </p>
-
-                            <p class="letter-ending">
-                                I love you, My Princess. ❤️
-                            </p>
-
-                            <div class="letter-signature">
-                                B & T
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            `
-        },
-
-        {
             type: "final-photo",
             duration: 8500,
             html: `
@@ -1151,72 +995,6 @@ function runOneYearAnniversary(screen) {
                         <h2>
                             I'd still choose you.
                         </h2>
-
-                    </div>
-
-                </div>
-            `
-        },
-
-        {
-            type: "final-montage",
-            duration: 14000,
-            html: `
-                <div class="anniversary-scene final-montage-scene">
-
-                    <div class="final-montage-title">
-
-                        <span>
-                            ONE YEAR OF US
-                        </span>
-
-                        <h2>
-                            Every memory led us here. ❤️
-                        </h2>
-
-                    </div>
-
-                    <div class="montage-photo montage-one">
-                        <img src="media/image4.jpg.jpeg">
-                    </div>
-
-                    <div class="montage-photo montage-two">
-                        <img src="media/image34.jpg.jpeg">
-                    </div>
-
-                    <div class="montage-photo montage-three">
-                        <img src="media/image10.jpg.jpeg">
-                    </div>
-
-                    <div class="montage-photo montage-four">
-                        <img src="media/image36.jpg.jpeg">
-                    </div>
-
-                    <div class="montage-photo montage-five">
-                        <img src="media/image38.jpg.jpeg">
-                    </div>
-
-                    <div class="montage-photo montage-six">
-                        <img src="media/image43.jpg.jpeg">
-                    </div>
-
-                    <div class="montage-photo montage-seven">
-                        <img src="media/image35.jpg.jpeg">
-                    </div>
-
-                    <div class="final-montage-message">
-
-                        <p>
-                            So many memories.
-                        </p>
-
-                        <p>
-                            One beautiful year.
-                        </p>
-
-                        <h3>
-                            And I'd still choose you. ❤️
-                        </h3>
 
                     </div>
 
@@ -1639,471 +1417,6 @@ function addCollageStyles() {
 
         }
 
-
-        .things-love-scene {
-            position: relative !important;
-            width: 100vw !important;
-            height: 100vh !important;
-            min-height: 100vh !important;
-            overflow: hidden !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(100, 20, 45, 0.3),
-                    rgba(0, 0, 0, 0.98) 75%
-                );
-        }
-
-        .things-love-content {
-            width: min(800px, 88vw);
-            text-align: center;
-            color: white;
-        }
-
-        .things-love-content > span {
-            display: block;
-            font-size: 11px;
-            letter-spacing: 5px;
-            opacity: 0;
-            animation: thingsFade 1.5s ease forwards;
-        }
-
-        .things-love-content h2 {
-            margin: 18px 0 35px;
-            font-size: clamp(27px, 5vw, 52px);
-            font-weight: 400;
-            opacity: 0;
-            animation: thingsFade 1.5s ease forwards;
-            animation-delay: 1s;
-        }
-
-        .love-thoughts p {
-            margin: 0;
-            font-size: clamp(17px, 3vw, 28px);
-            line-height: 1.6;
-            opacity: 0;
-            transform: translateY(15px);
-            animation: thoughtAppear 1.2s ease forwards;
-        }
-
-        .love-thoughts p:nth-child(1) {
-            animation-delay: 2.2s;
-        }
-
-        .love-thoughts p:nth-child(2) {
-            animation-delay: 3.3s;
-        }
-
-        .love-thoughts p:nth-child(3) {
-            animation-delay: 4.4s;
-        }
-
-        .love-thoughts p:nth-child(4) {
-            animation-delay: 5.5s;
-        }
-
-        .love-thoughts p:nth-child(5) {
-            animation-delay: 6.6s;
-        }
-
-        .love-thoughts .love-final-line {
-            margin-top: 25px;
-            font-size: 16px;
-            opacity: 0;
-            animation-delay: 8s;
-        }
-
-        .love-thoughts .love-you-line {
-            margin-top: 5px;
-            font-size: clamp(35px, 7vw, 70px);
-            font-weight: 500;
-            text-shadow:
-                0 0 20px rgba(255,80,110,0.7),
-                0 0 45px rgba(255,80,110,0.35);
-            animation-delay: 9s;
-        }
-
-
-        .love-letter-scene {
-            position: relative !important;
-            width: 100vw !important;
-            height: 100vh !important;
-            min-height: 100vh !important;
-            overflow: hidden !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            box-sizing: border-box;
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(90, 25, 45, 0.35),
-                    rgba(0, 0, 0, 0.97) 75%
-                );
-        }
-
-        .love-letter-card {
-            position: relative;
-            width: min(680px, 88vw);
-            max-height: 84vh;
-            overflow: hidden;
-            padding: clamp(25px, 5vw, 55px);
-            box-sizing: border-box;
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,248,242,0.97),
-                    rgba(239,224,214,0.95)
-                );
-            color: #241719;
-            box-shadow:
-                0 30px 80px rgba(0,0,0,0.7),
-                0 0 50px rgba(255,90,120,0.18);
-            border-radius: 3px;
-            transform: translateY(30px);
-            opacity: 0;
-            animation: letterAppear 2s ease forwards;
-        }
-
-        .letter-top {
-            text-align: center;
-            font-size: 10px;
-            letter-spacing: 4px;
-            opacity: 0.55;
-            margin-bottom: 25px;
-        }
-
-        .letter-content {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(13px, 1.8vw, 17px);
-            line-height: 1.7;
-            text-align: left;
-        }
-
-        .letter-content p {
-            margin: 0 0 15px;
-            opacity: 0;
-            animation: letterTextAppear 1s ease forwards;
-        }
-
-        .letter-content p:nth-child(1) {
-            animation-delay: 1.2s;
-        }
-
-        .letter-content p:nth-child(2) {
-            animation-delay: 1.8s;
-        }
-
-        .letter-content p:nth-child(3) {
-            animation-delay: 2.4s;
-        }
-
-        .letter-content p:nth-child(4) {
-            animation-delay: 3s;
-        }
-
-        .letter-content p:nth-child(5) {
-            animation-delay: 3.6s;
-        }
-
-        .letter-content p:nth-child(6) {
-            animation-delay: 4.2s;
-        }
-
-        .letter-content p:nth-child(7) {
-            animation-delay: 4.8s;
-        }
-
-        .letter-content p:nth-child(8) {
-            animation-delay: 5.4s;
-        }
-
-        .letter-content p:nth-child(9) {
-            animation-delay: 6s;
-        }
-
-        .letter-content p:nth-child(10) {
-            animation-delay: 6.6s;
-        }
-
-        .letter-special {
-            font-size: 1.15em;
-            font-weight: 600;
-        }
-
-        .letter-ending {
-            font-size: 1.2em;
-            font-weight: 600;
-            margin-top: 25px !important;
-        }
-
-        .letter-signature {
-            margin-top: 20px;
-            text-align: right;
-            font-family: cursive;
-            font-size: 25px;
-            opacity: 0;
-            animation: letterTextAppear 1s ease forwards;
-            animation-delay: 7.2s;
-        }
-
-
-        .final-montage-scene {
-            position: relative !important;
-            width: 100vw !important;
-            height: 100vh !important;
-            min-height: 100vh !important;
-            overflow: hidden !important;
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(85, 20, 40, 0.35),
-                    rgba(0, 0, 0, 0.98) 78%
-                );
-        }
-
-        .final-montage-title {
-            position: absolute;
-            z-index: 30;
-            top: 6%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: min(700px, 88vw);
-            text-align: center;
-            color: white;
-        }
-
-        .final-montage-title span {
-            display: block;
-            font-size: 10px;
-            letter-spacing: 5px;
-            opacity: 0.65;
-            margin-bottom: 10px;
-        }
-
-        .final-montage-title h2 {
-            margin: 0;
-            font-size: clamp(25px, 4.5vw, 50px);
-            font-weight: 400;
-            text-shadow:
-                0 0 20px rgba(255,255,255,0.3),
-                0 0 35px rgba(255,70,100,0.35);
-        }
-
-        .montage-photo {
-            position: absolute;
-            width: clamp(120px, 17vw, 220px);
-            height: clamp(155px, 23vw, 290px);
-            padding: 6px;
-            background: rgba(255,255,255,0.96);
-            box-shadow:
-                0 20px 50px rgba(0,0,0,0.65),
-                0 0 25px rgba(255,70,100,0.12);
-            opacity: 0;
-            animation:
-                montageAppear 1.4s ease forwards,
-                montageFloat 6s ease-in-out infinite;
-        }
-
-        .montage-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .montage-one {
-            left: 5%;
-            top: 23%;
-            transform: rotate(-9deg);
-            animation-delay: 0.7s;
-        }
-
-        .montage-two {
-            left: 28%;
-            top: 18%;
-            transform: rotate(6deg);
-            animation-delay: 1.3s;
-        }
-
-        .montage-three {
-            right: 28%;
-            top: 18%;
-            transform: rotate(-5deg);
-            animation-delay: 1.9s;
-        }
-
-        .montage-four {
-            right: 5%;
-            top: 23%;
-            transform: rotate(9deg);
-            animation-delay: 2.5s;
-        }
-
-        .montage-five {
-            left: 10%;
-            bottom: 4%;
-            transform: rotate(6deg);
-            animation-delay: 3.1s;
-        }
-
-        .montage-six {
-            right: 10%;
-            bottom: 4%;
-            transform: rotate(-7deg);
-            animation-delay: 3.7s;
-        }
-
-        .montage-seven {
-            left: 50%;
-            top: 52%;
-            transform: translate(-50%, -50%) rotate(-2deg);
-            width: clamp(145px, 20vw, 250px);
-            height: clamp(185px, 27vw, 320px);
-            z-index: 10;
-            animation-delay: 4.3s;
-        }
-
-        .final-montage-message {
-            position: absolute;
-            z-index: 40;
-            left: 50%;
-            bottom: 5%;
-            transform: translateX(-50%);
-            width: min(500px, 80vw);
-            text-align: center;
-            color: white;
-            text-shadow:
-                0 0 15px rgba(0,0,0,0.9);
-            pointer-events: none;
-        }
-
-        .final-montage-message p {
-            margin: 2px 0;
-            font-size: 14px;
-            opacity: 0;
-        }
-
-        .final-montage-message p:first-child {
-            animation: montageTextAppear 1s ease forwards;
-            animation-delay: 5.5s;
-        }
-
-        .final-montage-message p:nth-child(2) {
-            animation: montageTextAppear 1s ease forwards;
-            animation-delay: 6.2s;
-        }
-
-        .final-montage-message h3 {
-            margin: 8px 0 0;
-            font-size: clamp(22px, 4vw, 38px);
-            font-weight: 400;
-            opacity: 0;
-            animation: montageTextAppear 1.2s ease forwards;
-            animation-delay: 7s;
-        }
-
-
-        @keyframes thingsFade {
-
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        }
-
-        @keyframes thoughtAppear {
-
-            from {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        }
-
-        @keyframes letterAppear {
-
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.97);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-
-        }
-
-        @keyframes letterTextAppear {
-
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        }
-
-        @keyframes montageAppear {
-
-            from {
-                opacity: 0;
-                transform: scale(0.65);
-            }
-
-            to {
-                opacity: 1;
-            }
-
-        }
-
-        @keyframes montageFloat {
-
-            0%, 100% {
-                margin-top: 0;
-            }
-
-            50% {
-                margin-top: -10px;
-            }
-
-        }
-
-        @keyframes montageTextAppear {
-
-            from {
-                opacity: 0;
-                transform: translateY(12px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        }
-
-
         @media (max-width: 700px) {
 
             .collage-heading {
@@ -2212,89 +1525,6 @@ function addCollageStyles() {
 
             .collage-small-heart {
                 font-size: 17px;
-            }
-
-
-            .things-love-content {
-                width: 88vw;
-            }
-
-            .things-love-content h2 {
-                font-size: 26px;
-            }
-
-            .love-thoughts p {
-                font-size: 18px;
-            }
-
-
-            .love-letter-card {
-                width: 91vw;
-                max-height: 88vh;
-                padding: 25px 22px;
-            }
-
-            .letter-content {
-                font-size: 12px;
-                line-height: 1.55;
-            }
-
-            .letter-content p {
-                margin-bottom: 9px;
-            }
-
-
-            .montage-photo {
-                width: 85px;
-                height: 115px;
-                padding: 4px;
-            }
-
-            .montage-seven {
-                width: 105px;
-                height: 140px;
-            }
-
-            .montage-one {
-                left: 2%;
-                top: 26%;
-            }
-
-            .montage-two {
-                left: 23%;
-                top: 20%;
-            }
-
-            .montage-three {
-                right: 23%;
-                top: 20%;
-            }
-
-            .montage-four {
-                right: 2%;
-                top: 26%;
-            }
-
-            .montage-five {
-                left: 5%;
-                bottom: 13%;
-            }
-
-            .montage-six {
-                right: 5%;
-                bottom: 13%;
-            }
-
-            .final-montage-title {
-                top: 5%;
-            }
-
-            .final-montage-title h2 {
-                font-size: 24px;
-            }
-
-            .final-montage-message {
-                bottom: 4%;
             }
 
         }
@@ -3069,7 +2299,7 @@ function playVoiceNote() {
 
 
             music.play()
-                .catch(function ());
+                .catch(function () {});
 
 
             let volume = 0;
@@ -3094,7 +2324,6 @@ function playVoiceNote() {
                         clearInterval(
                             fadeIn
                         );
-
                     }
 
                 }, 80);
