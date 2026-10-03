@@ -357,7 +357,7 @@ function runOneYearAnniversary(screen) {
         {
             type: "photo",
             duration: 7500,
-            image: "media/image34.jpg.jpeg",
+            image: "media/video1.mp4.mp4",
             html: `
                 <div class="anniversary-scene memory-scene">
 
@@ -367,7 +367,7 @@ function runOneYearAnniversary(screen) {
 
                     <div class="memory-photo-wrap">
                         <img
-                            src="media/image34.jpg.jpeg"
+                            src="media/video1.mp4.mp4"
                             class="anniversary-photo"
                         >
                     </div>
