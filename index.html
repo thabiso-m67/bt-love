@@ -14,13 +14,38 @@
         <p class="intro-sub">Open when your heart is calm.</p>
     </div>
 
-    <div class="envelope-container">
-        <div class="envelope" onclick="openPrompt()">
-            <div class="heart">B & T</div>
+    <div id="myEnvelope" style="
+        display: flex !important;
+        position: fixed !important;
+        left: 50% !important;
+        top: 65% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 220px !important;
+        height: 140px !important;
+        background: #d4af37 !important;
+        border: 3px solid white !important;
+        border-radius: 8px !important;
+        justify-content: center !important;
+        align-items: center !important;
+        z-index: 99999 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        cursor: pointer !important;
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.8) !important;
+    " onclick="openPrompt()">
+
+        <div style="
+            color: white !important;
+            font-size: 28px !important;
+            font-weight: bold !important;
+            z-index: 100000 !important;
+        ">
+            B & T ❤️
         </div>
+
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20"></script>
 
 </body>
 </html>
