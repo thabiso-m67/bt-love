@@ -355,54 +355,63 @@ function runOneYearAnniversary(screen) {
         },
 
         {
-            type: "photo",
-            duration: 7500,
-            image: "media/video1.mp4.mp4",
-            html: `
-                <div class="anniversary-scene memory-scene">
+    type: "video",
+    duration: 11000,
+    html: `
+        <div class="anniversary-scene memory-scene">
 
-                    <div class="memory-number">
-                        02
-                    </div>
+            <div class="memory-number">
+                02
+            </div>
 
-                    <div class="memory-photo-wrap">
-                        <img
-                            src="media/video1.mp4.mp4"
-                            class="anniversary-photo"
-                        >
-                    </div>
+            <div class="memory-photo-wrap laugh-video-wrap">
 
-                    <div class="memory-content">
+                <video
+                    class="anniversary-video"
+                    autoplay
+                    muted
+                    playsinline
+                    preload="auto"
+                >
+                    <source
+                        src="media/video1.mp4.mp4"
+                        type="video/mp4"
+                    >
+                </video>
 
-                        <span>
-                            THE LAUGHS
-                        </span>
+            </div>
 
-                        <h2>
-                            Then came the laughs.
-                        </h2>
+            <div class="memory-content">
 
-                        <p>
-                            Somewhere along the way,
-                            you became one of my favourite
-                            people to laugh with.
-                        </p>
+                <span>
+                    THE LAUGHS
+                </span>
 
-                        <p>
-                            And honestly...
-                        </p>
+                <h2>
+                    Then came the laughs.
+                </h2>
 
-                        <p class="special-line">
-                            Some of my favourite memories
-                            with you are the completely
-                            ridiculous ones. 😂❤️
-                        </p>
+                <p>
+                    Somewhere along the way,
+                    you became one of my favourite
+                    people to laugh with.
+                </p>
 
-                    </div>
+                <p>
+                    And honestly...
+                </p>
 
-                </div>
-            `
-        },
+                <p class="special-line">
+                    Some of my favourite memories
+                    with you are the completely
+                    ridiculous ones. 😂❤️
+                </p>
+
+            </div>
+
+        </div>
+    `
+},
 
         {
             type: "photo",
