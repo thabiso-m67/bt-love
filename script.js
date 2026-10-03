@@ -558,7 +558,7 @@ function runOneYearAnniversary(screen) {
                     </div>
 
                     <div class="collage-note note-three">
-                        My favourite birthday girl.
+                        A special day for my special person.
                     </div>
 
                     <div class="collage-small-heart heart-one">
@@ -576,7 +576,7 @@ function runOneYearAnniversary(screen) {
         {
             type: "photo",
             duration: 7500,
-            image: "media/image30.jpg.jpeg",
+            image: "media/image26.jpg.jpeg",
             html: `
                 <div class="anniversary-scene portrait-scene">
 
@@ -614,7 +614,7 @@ function runOneYearAnniversary(screen) {
         {
             type: "photo",
             duration: 7500,
-            image: "media/image29.jpg.jpeg",
+            image: "media/image39.jpg.jpeg",
             html: `
                 <div class="anniversary-scene portrait-scene">
 
@@ -647,7 +647,7 @@ function runOneYearAnniversary(screen) {
                     <div class="portrait-photo">
 
                         <img
-                            src="media/image29.jpg.jpeg"
+                            src="media/image39.jpg.jpeg"
                             class="anniversary-photo"
                         >
 
@@ -660,14 +660,14 @@ function runOneYearAnniversary(screen) {
         {
             type: "photo",
             duration: 9000,
-            image: "media/image26.jpg.jpeg",
+            image: "media/image33.jpg.jpeg",
             html: `
                 <div class="anniversary-scene little-things-scene">
 
                     <div class="little-things-photo">
 
                         <img
-                            src="media/image26.jpg.jpeg"
+                            src="media/image33.jpg.jpeg"
                             class="anniversary-photo"
                         >
 
@@ -851,14 +851,14 @@ function runOneYearAnniversary(screen) {
         {
             type: "photo",
             duration: 9000,
-            image: "media/image35.jpg.jpeg",
+            image: "media/image37.jpg.jpeg",
             html: `
                 <div class="anniversary-scene us-scene">
 
                     <div class="us-photo">
 
                         <img
-                            src="media/image35.jpg.jpeg"
+                            src="media/image37.jpg.jpeg"
                             class="anniversary-photo"
                         >
 
