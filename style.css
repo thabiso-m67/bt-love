@@ -944,17 +944,75 @@ button:hover {
 }
 
 .envelope-container {
+    position: fixed !important;
+    top: 65% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 260px !important;
+    height: 180px !important;
     display: flex !important;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 100;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 9999 !important;
     opacity: 1 !important;
     visibility: visible !important;
 }
 
 .envelope {
-    cursor: pointer;
-    position: relative;
-    z-index: 101;
+    position: relative !important;
+    width: 260px !important;
+    height: 170px !important;
+    background: linear-gradient(145deg, #d4af37, #b8860b) !important;
+    border: 2px solid rgba(255, 255, 255, 0.8) !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    box-shadow:
+        0 0 20px rgba(212, 175, 55, 0.7),
+        0 0 50px rgba(212, 175, 55, 0.35) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+}
+
+.envelope::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    border-left: 130px solid transparent !important;
+    border-right: 130px solid transparent !important;
+    border-top: 90px solid rgba(255, 255, 255, 0.2) !important;
+    z-index: 1 !important;
+}
+
+.envelope::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    border-left: 130px solid transparent !important;
+    border-right: 130px solid transparent !important;
+    border-bottom: 95px solid rgba(0, 0, 0, 0.12) !important;
+    z-index: 1 !important;
+}
+
+.heart {
+    position: relative !important;
+    z-index: 10 !important;
+    color: white !important;
+    font-size: 28px !important;
+    font-weight: bold !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8) !important;
+}
+
+.envelope:hover {
+    transform: scale(1.05) !important;
+    box-shadow:
+        0 0 30px rgba(212, 175, 55, 0.9),
+        0 0 70px rgba(212, 175, 55, 0.5) !important;
 }
